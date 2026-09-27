@@ -1,0 +1,2491 @@
+/* ============================================================
+   JOTA EFI BEATZ — PRODUCER UNIVERSE
+   responsive.css
+   ------------------------------------------------------------
+   Responsive System
+   Desktop / Laptop / Tablet / Mobile
+   Dark / Neon Green / Premium Producer Experience
+   ============================================================ */
+
+
+/* ============================================================
+   01. LARGE DESKTOP
+   1440px+
+   ============================================================ */
+
+@media (min-width: 1440px) {
+
+    .container {
+        max-width: 1380px;
+    }
+
+
+    .section {
+        padding-block: 130px;
+    }
+
+
+    .hero {
+        min-height: 780px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(100px, 10vw, 180px);
+    }
+
+
+    .hero__description {
+        max-width: 600px;
+
+        font-size: 15px;
+    }
+
+
+    .section-title {
+        font-size: clamp(65px, 6vw, 105px);
+    }
+
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .beats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .library-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .studio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ============================================================
+   02. LAPTOP
+   1200px — 1439px
+   ============================================================ */
+
+@media (max-width: 1439px) {
+
+    .container {
+        width: min(92%, 1280px);
+    }
+
+
+    .hero {
+        min-height: 700px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(85px, 10vw, 150px);
+    }
+
+
+    .section-title {
+        font-size: clamp(55px, 6vw, 90px);
+    }
+
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .beats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .library-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .studio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .featured-product {
+        gap: 60px;
+    }
+
+}
+
+
+/* ============================================================
+   03. SMALL LAPTOP
+   1024px — 1199px
+   ============================================================ */
+
+@media (max-width: 1199px) {
+
+    html {
+        font-size: 15px;
+    }
+
+
+    .container {
+        width: min(92%, 1100px);
+    }
+
+
+    /* --------------------------------------------
+       HEADER
+       -------------------------------------------- */
+
+    .header {
+        padding-inline: 25px;
+    }
+
+
+    .nav {
+        gap: 20px;
+    }
+
+
+    .nav__list {
+        gap: 18px;
+    }
+
+
+    .nav__link {
+        font-size: 9px;
+    }
+
+
+    /* --------------------------------------------
+       HERO
+       -------------------------------------------- */
+
+    .hero {
+        min-height: 650px;
+    }
+
+
+    .hero__content {
+        max-width: 900px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(75px, 10vw, 130px);
+    }
+
+
+    .hero__description {
+        max-width: 500px;
+
+        font-size: 13px;
+    }
+
+
+    .hero__actions {
+        margin-top: 28px;
+    }
+
+
+    /* --------------------------------------------
+       SECTIONS
+       -------------------------------------------- */
+
+    .section {
+        padding-block: 90px;
+    }
+
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+
+    .section-title {
+        font-size: clamp(50px, 7vw, 80px);
+    }
+
+
+    /* --------------------------------------------
+       PRODUCT GRIDS
+       -------------------------------------------- */
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .beats-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .library-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* --------------------------------------------
+       FEATURED PRODUCT
+       -------------------------------------------- */
+
+    .featured-product {
+        grid-template-columns: 1fr 0.8fr;
+
+        gap: 45px;
+    }
+
+
+    .featured-product__title {
+        font-size: clamp(55px, 7vw, 90px);
+    }
+
+
+    /* --------------------------------------------
+       PROJECTS
+       -------------------------------------------- */
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* --------------------------------------------
+       STUDIO
+       -------------------------------------------- */
+
+    .studio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* --------------------------------------------
+       MUSIC
+       -------------------------------------------- */
+
+    .music-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* --------------------------------------------
+       FOOTER
+       -------------------------------------------- */
+
+    .footer__grid {
+        grid-template-columns: 1.5fr repeat(3, 1fr);
+    }
+
+}
+
+
+/* ============================================================
+   04. TABLET LANDSCAPE
+   901px — 1023px
+   ============================================================ */
+
+@media (max-width: 1023px) {
+
+    .container {
+        width: min(92%, 960px);
+    }
+
+
+    /* --------------------------------------------
+       NAVIGATION
+       -------------------------------------------- */
+
+    .nav__list {
+        gap: 14px;
+    }
+
+
+    .nav__cta {
+        padding-inline: 15px;
+    }
+
+
+    /* --------------------------------------------
+       HERO
+       -------------------------------------------- */
+
+    .hero {
+        min-height: 620px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(70px, 10vw, 115px);
+    }
+
+
+    /* --------------------------------------------
+       FEATURED
+       -------------------------------------------- */
+
+    .featured-product {
+        grid-template-columns: 1fr;
+    }
+
+
+    .featured-product__visual {
+        max-width: 700px;
+    }
+
+
+    .featured-product__content {
+        max-width: 700px;
+    }
+
+
+    /* --------------------------------------------
+       CATEGORY GRID
+       -------------------------------------------- */
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    /* --------------------------------------------
+       CTA
+       -------------------------------------------- */
+
+    .cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------------------------------
+       ABOUT
+       -------------------------------------------- */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------------------------------
+       CONTACT
+       -------------------------------------------- */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ============================================================
+   05. TABLET PORTRAIT
+   768px — 900px
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    html {
+        font-size: 15px;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    .container {
+        width: min(92%, 850px);
+    }
+
+
+    /* ========================================================
+       HEADER
+       ======================================================== */
+
+    .header {
+        height: 70px;
+
+        padding-inline: 20px;
+    }
+
+
+    .header__inner {
+        height: 70px;
+    }
+
+
+    .header__logo {
+        width: 125px;
+    }
+
+
+    .nav {
+        display: none;
+    }
+
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* ========================================================
+       MOBILE NAVIGATION
+       ======================================================== */
+
+    .mobile-nav {
+        position: fixed;
+
+        inset: 70px 0 0;
+
+        z-index: 2000;
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 30px 25px;
+
+        background: rgba(5,6,5,0.98);
+
+        backdrop-filter: blur(20px);
+
+        overflow-y: auto;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-15px);
+
+        transition:
+            opacity var(--transition-normal),
+            visibility var(--transition-normal),
+            transform var(--transition-normal);
+    }
+
+
+    .mobile-nav.is-active {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+    }
+
+
+    .mobile-nav__list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+
+    .mobile-nav__item {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+
+    .mobile-nav__link {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        min-height: 65px;
+
+        color: var(--color-white);
+
+        font-family: var(--font-display);
+
+        font-size: 22px;
+
+        font-weight: 600;
+
+        letter-spacing: -0.03em;
+
+        text-transform: uppercase;
+    }
+
+
+    .mobile-nav__link:hover {
+        color: var(--color-green);
+    }
+
+
+    .mobile-nav__arrow {
+        color: var(--color-green);
+
+        font-size: 14px;
+    }
+
+
+    .mobile-nav__footer {
+        margin-top: auto;
+
+        padding-top: 35px;
+    }
+
+
+    .mobile-nav__socials {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+
+    .mobile-nav__social {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        border: 1px solid var(--color-border);
+
+        color: var(--color-gray-300);
+    }
+
+
+    .mobile-nav__social:hover {
+        border-color: var(--color-green);
+
+        color: var(--color-green);
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+        min-height: 600px;
+
+        padding-block: 100px 70px;
+    }
+
+
+    .hero__content {
+        width: 100%;
+    }
+
+
+    .hero__title {
+        max-width: 850px;
+
+        font-size: clamp(65px, 12vw, 105px);
+
+        line-height: 0.82;
+    }
+
+
+    .hero__description {
+        max-width: 560px;
+
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    .hero__actions {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+    }
+
+
+    /* ========================================================
+       SECTION
+       ======================================================== */
+
+    .section {
+        padding-block: 80px;
+    }
+
+
+    .section-header {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .section-header__right {
+        width: 100%;
+    }
+
+
+    .section-title {
+        font-size: clamp(48px, 10vw, 80px);
+    }
+
+
+    .section-description {
+        max-width: 550px;
+
+        font-size: 12px;
+    }
+
+
+    /* ========================================================
+       PRODUCT GRID
+       ======================================================== */
+
+    .product-grid,
+    .beats-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .library-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* ========================================================
+       PRODUCT CARD
+       ======================================================== */
+
+    .product-card__title {
+        font-size: 12px;
+    }
+
+
+    .product-card__meta {
+        font-size: 8px;
+    }
+
+
+    .product-card__price {
+        font-size: 10px;
+    }
+
+
+    /* ========================================================
+       FEATURED PRODUCT
+       ======================================================== */
+
+    .featured-product {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .featured-product__visual {
+        width: 100%;
+
+        max-width: 650px;
+    }
+
+
+    .featured-product__content {
+        width: 100%;
+
+        max-width: 650px;
+    }
+
+
+    .featured-product__title {
+        font-size: clamp(55px, 12vw, 90px);
+    }
+
+
+    /* ========================================================
+       CATEGORIES
+       ======================================================== */
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .category-card {
+        min-height: 180px;
+    }
+
+
+    /* ========================================================
+       MUSIC
+       ======================================================== */
+
+    .music-section,
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .music-cover {
+        max-width: 600px;
+    }
+
+
+    /* ========================================================
+       PROJECTS
+       ======================================================== */
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    /* ========================================================
+       STUDIO
+       ======================================================== */
+
+    .studio-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    /* ========================================================
+       ABOUT
+       ======================================================== */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .about-image {
+        max-width: 650px;
+    }
+
+
+    /* ========================================================
+       WORK WITH ME
+       ======================================================== */
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 45px 30px;
+    }
+
+
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
+
+
+    /* ========================================================
+       GLOBAL PLAYER
+       ======================================================== */
+
+    .global-player {
+        height: 70px;
+
+        padding-inline: 15px;
+    }
+
+
+    .global-player__track-info {
+        max-width: 160px;
+    }
+
+
+    .global-player__cover {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .global-player__title {
+        font-size: 9px;
+    }
+
+
+    .global-player__artist {
+        font-size: 7px;
+    }
+
+
+    .global-player__progress {
+        display: none;
+    }
+
+
+    /* ========================================================
+       SEARCH
+       ======================================================== */
+
+    .search-overlay__content {
+        width: 92%;
+    }
+
+
+    .search-overlay__input {
+        font-size: clamp(35px, 8vw, 65px);
+    }
+
+}
+
+
+/* ============================================================
+   06. MOBILE LARGE
+   651px — 767px
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+    .container {
+        width: calc(100% - 40px);
+    }
+
+
+    /* ========================================================
+       ANNOUNCEMENT BAR
+       ======================================================== */
+
+    .announcement-bar {
+        min-height: 32px;
+
+        padding-inline: 15px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.08em;
+    }
+
+
+    /* ========================================================
+       HEADER
+       ======================================================== */
+
+    .header {
+        padding-inline: 20px;
+    }
+
+
+    .header__logo {
+        width: 115px;
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+        min-height: 570px;
+
+        padding-block: 80px 60px;
+    }
+
+
+    .hero__eyebrow {
+        font-size: 8px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(58px, 14vw, 95px);
+
+        letter-spacing: -0.08em;
+    }
+
+
+    .hero__description {
+        margin-top: 25px;
+
+        font-size: 12px;
+    }
+
+
+    .hero__actions {
+        margin-top: 25px;
+    }
+
+
+    /* ========================================================
+       BUTTONS
+       ======================================================== */
+
+    .button {
+        min-height: 45px;
+
+        padding-inline: 17px;
+
+        font-size: 8px;
+    }
+
+
+    .button--large {
+        min-height: 50px;
+
+        padding-inline: 20px;
+    }
+
+
+    /* ========================================================
+       SECTIONS
+       ======================================================== */
+
+    .section {
+        padding-block: 70px;
+    }
+
+
+    .section-title {
+        font-size: clamp(45px, 12vw, 75px);
+
+        letter-spacing: -0.075em;
+    }
+
+
+    .section-description {
+        font-size: 11px;
+
+        line-height: 1.75;
+    }
+
+
+    /* ========================================================
+       PRODUCT GRID
+       ======================================================== */
+
+    .product-grid,
+    .beats-grid,
+    .library-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .product-card__content {
+        padding-top: 10px;
+    }
+
+
+    .product-card__title {
+        font-size: 10px;
+    }
+
+
+    .product-card__subtitle {
+        font-size: 7px;
+    }
+
+
+    .product-card__price {
+        font-size: 9px;
+    }
+
+
+    .product-card__secondary {
+        gap: 5px;
+    }
+
+
+    .product-card__license {
+        font-size: 6px;
+    }
+
+
+    /* ========================================================
+       PRODUCT PLAY
+       ======================================================== */
+
+    .product-card__play {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    /* ========================================================
+       FEATURED BANNER
+       ======================================================== */
+
+    .featured-banner {
+        min-height: 350px;
+    }
+
+
+    .featured-banner__content {
+        padding: 25px;
+    }
+
+
+    .featured-banner__content h2 {
+        font-size: clamp(40px, 10vw, 65px);
+    }
+
+
+    /* ========================================================
+       CATEGORY
+       ======================================================== */
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .category-card {
+        min-height: 150px;
+
+        padding: 20px;
+    }
+
+
+    .category-card__title {
+        font-size: 15px;
+    }
+
+
+    .category-card__number {
+        font-size: 9px;
+    }
+
+
+    /* ========================================================
+       PROJECTS
+       ======================================================== */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-card__title {
+        font-size: 18px;
+    }
+
+
+    /* ========================================================
+       STUDIO
+       ======================================================== */
+
+    .studio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ========================================================
+       CTA
+       ======================================================== */
+
+    .cta-panel {
+        padding: 40px 25px;
+    }
+
+
+    .cta-panel h2 {
+        font-size: clamp(40px, 11vw, 65px);
+    }
+
+
+    .cta-panel p {
+        font-size: 11px;
+    }
+
+
+    /* ========================================================
+       TESTIMONIAL
+       ======================================================== */
+
+    .testimonial {
+        padding: 35px 25px;
+    }
+
+
+    .testimonial__quote {
+        font-size: 25px;
+    }
+
+
+    /* ========================================================
+       SOCIAL CARDS
+       ======================================================== */
+
+    .social-card {
+        min-height: 70px;
+
+        padding: 15px;
+    }
+
+
+    .social-card__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .footer__brand {
+        grid-column: auto;
+    }
+
+
+    .footer__bottom {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    /* ========================================================
+       PLAYER
+       ======================================================== */
+
+    .global-player {
+        height: 65px;
+
+        padding-inline: 12px;
+    }
+
+
+    .global-player__cover {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .global-player__track-info {
+        max-width: 120px;
+    }
+
+
+    .global-player__controls {
+        gap: 5px;
+    }
+
+
+    .global-player__button {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .global-player__volume {
+        display: none;
+    }
+
+
+    /* ========================================================
+       SEARCH
+       ======================================================== */
+
+    .search-overlay {
+        padding: 20px;
+    }
+
+
+    .search-overlay__input {
+        font-size: clamp(32px, 10vw, 55px);
+    }
+
+
+    .search-result {
+        grid-template-columns: 55px 1fr;
+
+        gap: 12px;
+    }
+
+
+    .search-result__price {
+        display: none;
+    }
+
+}
+
+
+/* ============================================================
+   07. MOBILE
+   481px — 650px
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    /* ========================================================
+       CONTAINER
+       ======================================================== */
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+
+    /* ========================================================
+       TOP BAR
+       ======================================================== */
+
+    .announcement-bar {
+        white-space: nowrap;
+
+        overflow: hidden;
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+        min-height: 540px;
+
+        padding-block: 70px 50px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(54px, 15vw, 85px);
+    }
+
+
+    .hero__description {
+        max-width: 100%;
+
+        font-size: 11px;
+    }
+
+
+    .hero__actions {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .hero__actions .button {
+        width: 100%;
+    }
+
+
+    /* ========================================================
+       SECTION HEADER
+       ======================================================== */
+
+    .section-header {
+        margin-bottom: 28px;
+    }
+
+
+    .section-title {
+        font-size: clamp(42px, 13vw, 68px);
+    }
+
+
+    /* ========================================================
+       PRODUCT GRID
+       ======================================================== */
+
+    .product-grid,
+    .beats-grid,
+    .library-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+
+    .product-card__title {
+        font-size: 9px;
+    }
+
+
+    .product-card__meta {
+        font-size: 7px;
+    }
+
+
+    .product-card__price {
+        font-size: 8px;
+    }
+
+
+    /* ========================================================
+       PRODUCT DETAILS
+       ======================================================== */
+
+    .product-detail {
+        padding-block: 45px 80px;
+    }
+
+
+    .product-detail__title {
+        font-size: clamp(50px, 15vw, 85px);
+    }
+
+
+    .product-detail__description {
+        font-size: 11px;
+
+        line-height: 1.8;
+    }
+
+
+    .product-detail__meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* ========================================================
+       FILTER
+       ======================================================== */
+
+    .filter-bar {
+        gap: 15px;
+    }
+
+
+    .filter-bar__left {
+        width: 100%;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        padding-bottom: 5px;
+
+        scrollbar-width: none;
+    }
+
+
+    .filter-bar__left::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .filter-button {
+        flex-shrink: 0;
+    }
+
+
+    .filter-bar__right {
+        width: 100%;
+    }
+
+
+    /* ========================================================
+       FEATURED
+       ======================================================== */
+
+    .featured-product__title {
+        font-size: clamp(50px, 14vw, 80px);
+    }
+
+
+    .featured-product__description {
+        font-size: 11px;
+    }
+
+
+    /* ========================================================
+       CATEGORIES
+       ======================================================== */
+
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+
+    .category-card {
+        min-height: 135px;
+
+        padding: 15px;
+    }
+
+
+    .category-card__title {
+        font-size: 13px;
+    }
+
+
+    /* ========================================================
+       MUSIC
+       ======================================================== */
+
+    .music-release {
+        padding: 20px;
+    }
+
+
+    .music-release__title {
+        font-size: 30px;
+    }
+
+
+    /* ========================================================
+       PAGE HERO
+       ======================================================== */
+
+    .page-hero {
+        padding-block: 65px 60px;
+    }
+
+
+    .page-hero__title {
+        font-size: clamp(52px, 17vw, 90px);
+
+        line-height: 0.82;
+    }
+
+
+    .page-hero__description {
+        margin-top: 25px;
+
+        font-size: 11px;
+    }
+
+
+    /* ========================================================
+       STATS
+       ======================================================== */
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .stat-card {
+        padding: 20px;
+    }
+
+
+    .stat-card__number {
+        font-size: 35px;
+    }
+
+
+    .stat-card__label {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       FORM
+       ======================================================== */
+
+    .form-group {
+        margin-top: 15px;
+    }
+
+
+    .form-input,
+    .form-select {
+        min-height: 47px;
+    }
+
+
+    .form-textarea {
+        min-height: 120px;
+    }
+
+
+    /* ========================================================
+       MODAL
+       ======================================================== */
+
+    .modal {
+        padding: 12px;
+    }
+
+
+    .modal__content {
+        max-height: 92vh;
+
+        padding: 30px 20px;
+    }
+
+
+    /* ========================================================
+       TOAST
+       ======================================================== */
+
+    .toast-container {
+        right: 8px;
+
+        bottom: 75px;
+
+        left: 8px;
+    }
+
+
+    .toast {
+        min-width: 0;
+
+        width: 100%;
+    }
+
+
+    /* ========================================================
+       INFO BAR
+       ======================================================== */
+
+    .info-bar {
+        left: 8px;
+
+        right: 8px;
+
+        bottom: 75px;
+
+        padding: 15px;
+    }
+
+}
+
+
+/* ============================================================
+   08. MOBILE SMALL
+   361px — 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 14px;
+    }
+
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+
+    /* ========================================================
+       HEADER
+       ======================================================== */
+
+    .header {
+        height: 62px;
+
+        padding-inline: 12px;
+    }
+
+
+    .header__inner {
+        height: 62px;
+    }
+
+
+    .header__logo {
+        width: 100px;
+    }
+
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .mobile-nav {
+        inset: 62px 0 0;
+
+        padding: 20px 18px;
+    }
+
+
+    .mobile-nav__link {
+        min-height: 58px;
+
+        font-size: 18px;
+    }
+
+
+    /* ========================================================
+       ANNOUNCEMENT
+       ======================================================== */
+
+    .announcement-bar {
+        min-height: 28px;
+
+        font-size: 6px;
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+        min-height: 500px;
+
+        padding-block: 60px 40px;
+    }
+
+
+    .hero__title {
+        font-size: clamp(50px, 16vw, 75px);
+    }
+
+
+    .hero__description {
+        font-size: 10px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ========================================================
+       BUTTONS
+       ======================================================== */
+
+    .button {
+        min-height: 43px;
+
+        padding-inline: 15px;
+
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       SECTION
+       ======================================================== */
+
+    .section {
+        padding-block: 60px;
+    }
+
+
+    .section-title {
+        font-size: clamp(40px, 14vw, 62px);
+    }
+
+
+    .section-description {
+        font-size: 10px;
+    }
+
+
+    /* ========================================================
+       PRODUCTS
+       ======================================================== */
+
+    .product-grid,
+    .beats-grid,
+    .library-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+
+    .product-card__content {
+        padding-top: 7px;
+    }
+
+
+    .product-card__title {
+        font-size: 8px;
+    }
+
+
+    .product-card__subtitle {
+        font-size: 6px;
+    }
+
+
+    .product-card__price {
+        font-size: 7px;
+    }
+
+
+    .product-card__license {
+        font-size: 5px;
+    }
+
+
+    .product-card__play {
+        width: 34px;
+        height: 34px;
+
+        font-size: 11px;
+    }
+
+
+    /* ========================================================
+       CATEGORIES
+       ======================================================== */
+
+    .categories-grid {
+        gap: 6px;
+    }
+
+
+    .category-card {
+        min-height: 120px;
+
+        padding: 13px;
+    }
+
+
+    .category-card__title {
+        font-size: 11px;
+    }
+
+
+    .category-card__number {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       FEATURED BANNER
+       ======================================================== */
+
+    .featured-banner {
+        min-height: 290px;
+    }
+
+
+    .featured-banner__content {
+        padding: 18px;
+    }
+
+
+    .featured-banner__content h2 {
+        font-size: 36px;
+    }
+
+
+    /* ========================================================
+       PAGE HERO
+       ======================================================== */
+
+    .page-hero {
+        padding-block: 55px 50px;
+    }
+
+
+    .page-hero__title {
+        font-size: clamp(48px, 17vw, 75px);
+    }
+
+
+    /* ========================================================
+       PRODUCT DETAIL
+       ======================================================== */
+
+    .product-detail {
+        padding-block: 35px 70px;
+    }
+
+
+    .product-detail__category {
+        font-size: 7px;
+    }
+
+
+    .product-detail__title {
+        font-size: clamp(45px, 16vw, 75px);
+    }
+
+
+    .product-detail__subtitle {
+        font-size: 8px;
+    }
+
+
+    .product-detail__description {
+        margin-top: 25px;
+
+        font-size: 10px;
+    }
+
+
+    .product-detail__meta-item {
+        padding: 13px 8px;
+    }
+
+
+    .product-detail__meta-label {
+        font-size: 6px;
+    }
+
+
+    .product-detail__meta-value {
+        font-size: 9px;
+    }
+
+
+    /* ========================================================
+       PURCHASE
+       ======================================================== */
+
+    .product-purchase {
+        margin-top: 25px;
+
+        padding: 17px;
+    }
+
+
+    .product-purchase__price {
+        font-size: 21px;
+    }
+
+
+    .product-purchase__license {
+        font-size: 7px;
+    }
+
+
+    .trust-item {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       SEARCH
+       ======================================================== */
+
+    .search-overlay__input {
+        font-size: 30px;
+    }
+
+
+    .search-result {
+        grid-template-columns: 45px 1fr;
+
+        gap: 10px;
+
+        padding-block: 10px;
+    }
+
+
+    .search-result__image {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .search-result__type {
+        font-size: 6px;
+    }
+
+
+    .search-result__title {
+        font-size: 11px;
+    }
+
+
+    .search-result__meta {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       STATS
+       ======================================================== */
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stat-card {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 18px;
+    }
+
+
+    .stat-card__number {
+        font-size: 32px;
+    }
+
+
+    .stat-card__label {
+        margin-top: 0;
+
+        text-align: right;
+    }
+
+
+    /* ========================================================
+       CTA
+       ======================================================== */
+
+    .cta-panel {
+        padding: 30px 18px;
+    }
+
+
+    .cta-panel h2 {
+        font-size: 38px;
+    }
+
+
+    .cta-panel p {
+        font-size: 10px;
+    }
+
+
+    .cta-panel .button {
+        width: 100%;
+    }
+
+
+    /* ========================================================
+       TESTIMONIAL
+       ======================================================== */
+
+    .testimonial {
+        padding: 28px 18px;
+    }
+
+
+    .testimonial__quote {
+        font-size: 21px;
+    }
+
+
+    .testimonial__author {
+        margin-top: 25px;
+    }
+
+
+    /* ========================================================
+       SOCIAL
+       ======================================================== */
+
+    .social-card {
+        padding: 12px;
+    }
+
+
+    .social-card__icon {
+        width: 34px;
+        height: 34px;
+
+        font-size: 14px;
+    }
+
+
+    .social-card__name {
+        font-size: 9px;
+    }
+
+
+    .social-card__handle {
+        font-size: 6px;
+    }
+
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    .footer {
+        padding-block: 55px 30px;
+    }
+
+
+    .footer__logo {
+        width: 120px;
+    }
+
+
+    .footer__title {
+        font-size: 8px;
+    }
+
+
+    .footer__link {
+        font-size: 8px;
+    }
+
+
+    .footer__copyright {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       GLOBAL PLAYER
+       ======================================================== */
+
+    .global-player {
+        height: 60px;
+
+        padding-inline: 8px;
+    }
+
+
+    .global-player__cover {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .global-player__track-info {
+        max-width: 90px;
+    }
+
+
+    .global-player__title {
+        font-size: 8px;
+    }
+
+
+    .global-player__artist {
+        font-size: 6px;
+    }
+
+
+    .global-player__button {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+
+
+    /* Esconde controles secundários para
+       não apertar o player em telas pequenas */
+
+    .global-player__prev,
+    .global-player__next {
+        display: none;
+    }
+
+
+    /* ========================================================
+       TOAST
+       ======================================================== */
+
+    .toast {
+        padding: 12px 14px;
+    }
+
+
+    .toast__title {
+        font-size: 8px;
+    }
+
+
+    .toast__message {
+        font-size: 7px;
+    }
+
+
+    /* ========================================================
+       INFO BAR
+       ======================================================== */
+
+    .info-bar {
+        padding: 12px;
+    }
+
+
+    .info-bar__text {
+        font-size: 7px;
+    }
+
+
+    .info-bar__actions .button {
+        min-height: 35px;
+
+        font-size: 7px;
+    }
+
+}
+
+
+/* ============================================================
+   09. VERY SMALL MOBILE
+   320px — 360px
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+    .container {
+        width: calc(100% - 20px);
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+        min-height: 470px;
+
+        padding-block: 50px 35px;
+    }
+
+
+    .hero__title {
+        font-size: 48px;
+    }
+
+
+    .hero__description {
+        font-size: 9px;
+    }
+
+
+    /* ========================================================
+       PRODUCTS
+       ======================================================== */
+
+    .product-grid,
+    .beats-grid,
+    .library-grid {
+        gap: 6px;
+    }
+
+
+    .product-card__title {
+        font-size: 7px;
+    }
+
+
+    .product-card__subtitle {
+        font-size: 5px;
+    }
+
+
+    .product-card__price {
+        font-size: 6px;
+    }
+
+
+    .product-card__play {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    /* ========================================================
+       SECTION
+       ======================================================== */
+
+    .section {
+        padding-block: 50px;
+    }
+
+
+    .section-title {
+        font-size: 38px;
+    }
+
+
+    /* ========================================================
+       CATEGORY
+       ======================================================== */
+
+    .category-card {
+        min-height: 105px;
+
+        padding: 10px;
+    }
+
+
+    .category-card__title {
+        font-size: 9px;
+    }
+
+
+    /* ========================================================
+       PAGE HERO
+       ======================================================== */
+
+    .page-hero__title {
+        font-size: 45px;
+    }
+
+
+    /* ========================================================
+       PRODUCT DETAIL
+       ======================================================== */
+
+    .product-detail__title {
+        font-size: 42px;
+    }
+
+
+    .product-detail__meta-value {
+        font-size: 8px;
+    }
+
+
+    /* ========================================================
+       CTA
+       ======================================================== */
+
+    .cta-panel h2 {
+        font-size: 34px;
+    }
+
+
+    /* ========================================================
+       PLAYER
+       ======================================================== */
+
+    .global-player__track-info {
+        max-width: 75px;
+    }
+
+
+    .global-player__title {
+        font-size: 7px;
+    }
+
+
+    .global-player__button {
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+
+/* ============================================================
+   10. LANDSCAPE MOBILE
+   ============================================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero {
+        min-height: 650px;
+
+        padding-block: 80px;
+    }
+
+
+    .mobile-nav {
+        overflow-y: auto;
+    }
+
+
+    .mobile-nav__link {
+        min-height: 50px;
+    }
+
+
+    .modal__content {
+        max-height: 85vh;
+    }
+
+}
+
+
+/* ============================================================
+   11. TOUCH DEVICES
+   Remove hover-dependent interactions where necessary
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    /* Evita efeitos exagerados em touchscreen */
+
+    .product-card:hover
+    .product-card__image img {
+        transform: none;
+    }
+
+
+    .featured-banner:hover
+    .featured-banner__image img {
+        transform: none;
+    }
+
+
+    .social-card:hover {
+        border-color: var(--color-border);
+
+        background: transparent;
+    }
+
+
+    .dropdown:hover .dropdown__menu {
+        opacity: 0;
+
+        visibility: hidden;
+    }
+
+
+    [data-tooltip]::after {
+        display: none;
+    }
+
+
+    /* Cursor customizado não faz sentido
+       em touchscreen */
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+
+    body.has-custom-cursor {
+        cursor: auto;
+    }
+
+}
+
+
+/* ============================================================
+   12. ACCESSIBILITY — FOCUS
+   ============================================================ */
+
+@media (any-hover: none) {
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid var(--color-green);
+
+        outline-offset: 3px;
+    }
+
+}
+
+
+/* ============================================================
+   13. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+
+    .image-reveal::after {
+        display: none;
+    }
+
+
+    .image-reveal img {
+        transform: none;
+    }
+
+}
+
+
+/* ============================================================
+   14. PRINT
+   ============================================================ */
+
+@media print {
+
+    .announcement-bar,
+    .header,
+    .mobile-nav,
+    .global-player,
+    .toast-container,
+    .info-bar,
+    .cursor-dot,
+    .cursor-ring,
+    .menu-toggle,
+    .button {
+        display: none !important;
+    }
+
+
+    body {
+        background: #fff;
+
+        color: #000;
+    }
+
+
+    a {
+        color: #000;
+
+        text-decoration: underline;
+    }
+
+
+    .section,
+    .page-hero {
+        padding-block: 30px;
+    }
+
+}

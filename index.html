@@ -1,0 +1,3009 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Jota Efi Beatz — Beats, Drum Kits, Samples, Music and Projects."
+    >
+
+    <meta
+        name="author"
+        content="Jota Efi Beatz"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
+
+    <title>Jota Efi Beatz — The Producer's Universe</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         Temporariamente usamos Inter + Space Grotesk.
+         Podemos trocar depois pela tipografia definitiva.
+    ========================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- =========================================================
+         PROJECT CSS
+    ========================================================== -->
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/responsive.css"
+    >
+
+    <link 
+        rel="icon" 
+        type="image/x-icon" 
+        href="assets/images/LOGO MEU/icons-jf/icon-jf-02-fv/favicon.ico">
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         ACCESSIBILITY
+    ========================================================== -->
+
+    <a
+        href="#main-content"
+        class="skip-link"
+    >
+        Saltar para o conteúdo
+    </a>
+
+
+    <!-- =========================================================
+         ANNOUNCEMENT BAR
+         Inspirada na barra promocional do Jay Cactus,
+         mas adaptada para Jota Efi.
+    ========================================================== -->
+
+    <div class="announcement-bar">
+
+        <div class="announcement-bar__content">
+
+            <span class="announcement-bar__label">
+                NOVO DROP
+            </span>
+
+            <span class="announcement-bar__text">
+                SANA — AFRO TECH JÁ ESTÁ DISPONÍVEL
+            </span>
+
+            <a
+                href="./pages/drops.html"
+                class="announcement-bar__link"
+            >
+                EXPLORAR
+                <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+        </div>
+
+
+        <button
+            class="announcement-bar__close"
+            aria-label="Fechar anúncio"
+            type="button"
+        >
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         HEADER / NAVIGATION
+    ========================================================== -->
+
+    <header class="site-header">
+
+        <div class="container site-header__inner">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="./index.html"
+                class="brand"
+                aria-label="Jota Efi Beatz — Página inicial"
+            >
+
+                <img
+                    src="assets/images/LOGO MEU/logo/logo-jotaefibeatz-semfundo.png"
+                    alt="Jota Efi Beatz"
+                    class="brand__logo"
+                >
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav
+                class="main-navigation"
+                aria-label="Navegação principal"
+            >
+
+                <a
+                    href="../pages/beats.html"
+                    class="nav-link"
+                >
+                    Beats
+                </a>
+
+                <a
+                    href="./pages/sound-library.html"
+                    class="nav-link"
+                >
+                    Sound Library
+                </a>
+
+                <a
+                    href="./pages/drops.html"
+                    class="nav-link"
+                >
+                    Drops
+                </a>
+
+                <a
+                    href="./pages/music.html"
+                    class="nav-link"
+                >
+                    Música
+                </a>
+
+                <a
+                    href="./pages/projects.html"
+                    class="nav-link"
+                >
+                    Projetos
+                </a>
+
+                <a
+                    href="./pages/about.html"
+                    class="nav-link"
+                >
+                    Sobre
+                </a>
+
+            </nav>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+                <a
+                    href="./pages/beats.html"
+                    class="header-cta"
+                >
+                    <span>Explorar Beats</span>
+
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+
+                <button
+                    class="icon-button"
+                    type="button"
+                    aria-label="Pesquisar"
+                    data-search-trigger
+                >
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <a
+                    href="#"
+                    class="icon-button"
+                    aria-label="Carrinho"
+                >
+                    <i class="bi bi-bag"></i>
+
+                    <span class="cart-count">
+                        0
+                    </span>
+                </a>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    data-menu-toggle
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <div
+            class="mobile-navigation"
+            data-mobile-menu
+        >
+
+            <nav
+                class="mobile-navigation__nav"
+                aria-label="Navegação mobile"
+            >
+
+                <a href="./pages/beats.html">
+                    Beats
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="./pages/sound-library.html">
+                    Sound Library
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="./pages/drops.html">
+                    Drops
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="./pages/music.html">
+                    Música
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="./pages/projects.html">
+                    Projetos
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="./pages/about.html">
+                    Sobre
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main id="main-content">
+
+
+        <!-- =====================================================
+             HERO / FEATURED DROP
+        ====================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-section__background"></div>
+
+            <div class="container">
+
+                <div class="hero">
+
+                    <!-- HERO VISUAL -->
+
+                    <div class="hero__visual">
+
+                        <div class="hero__image-wrapper">
+
+                            <img
+                                src="./assets/images/sana-hero.png"
+                                alt="SANA — Afro Tech"
+                                class="hero__image"
+                            >
+
+                        </div>
+
+
+                        <!-- AUDIO WAVEFORM DECORATION -->
+
+                        <div class="hero-waveform">
+
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HERO CONTENT -->
+
+                    <div class="hero__content">
+
+                        <span class="eyebrow">
+                            <mark class="sub-nv">JOTA EFI BEATZ — LANÇAMENTO</mark>
+                        </span>
+
+
+                        <h1 class="hero__title">
+
+                            SANA
+
+                            <span>
+                                AFRO TECH
+                            </span>
+
+                        </h1>
+
+
+                        <p class="hero__description">
+
+                            Uma experiência sonora criada a partir
+                            da visão de Jota Efi Beatz.
+
+                            Sons para artistas que não querem
+                            soar como todo mundo.
+
+                        </p>
+
+
+                        <!-- HERO META -->
+
+                        <div class="hero__meta">
+
+                            <div class="hero-meta-item">
+
+                                <span class="hero-meta-item__label">
+                                    TYPE
+                                </span>
+
+                                <span class="hero-meta-item__value">
+                                    Beat
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-meta-item">
+
+                                <span class="hero-meta-item__label">
+                                    GENRE
+                                </span>
+
+                                <span class="hero-meta-item__value">
+                                    Afro Tech
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-meta-item">
+
+                                <span class="hero-meta-item__label">
+                                    BPM
+                                </span>
+
+                                <span class="hero-meta-item__value">
+                                    124
+                                </span>
+
+                            </div>
+
+                            <div class="hero-meta-item">
+
+                                <span class="hero-meta-item__label">
+                                    Autor
+                                </span>
+
+                                <span class="hero-meta-item__value">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- HERO ACTIONS -->
+
+                        <div class="hero__actions">
+
+                            <a
+                                href="./products/beats/sana.html"
+                                class="button button--primary"
+                            >
+
+                                <span>
+                                    Explorar SANA
+                                </span>
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+
+                            <button
+                                type="button"
+                                class="button button--secondary"
+                                data-audio-preview
+                                data-audio="./assets/audio/beats/sana-preview.mp3"
+                            >
+
+                                <i class="bi bi-play-fill"></i>
+
+                                <span>
+                                    Ouvir Preview
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+           O UNIVERSO DO JOTA EFI BEATZ |  INTRO / BRAND STATEMENT
+        ====================================================== -->
+
+        <section class="statement-section">
+
+            <div class="container">
+
+                <div class="statement">
+
+                    <span class="section-label">
+                        O UNIVERSO DO JOTA EFI BEATZ
+                    </span>
+
+
+                    <h2 class="statement__title">
+
+                        BEATS.
+                        <span>SOUNDS.</span>
+                        MUSIC.
+                        <span>VISION.</span>
+
+                    </h2>
+
+
+                    <div class="statement__bottom">
+
+                        <p>
+
+                            Bem-vindo ao meu universo. O Uniiverso do Jota Efi Beatz.
+                            Um espaço onde produção, música,
+                            cultura e identidade encontram-se
+                            no mesmo lugar.
+
+                        </p>
+
+
+                        <a
+                            href="./pages/about.html"
+                            class="text-link"
+                        >
+
+                            Conheça Jota Efi Beatz 
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+           PARA ARTRISTAS | BEATS
+        ====================================================== -->
+
+        <section class="products-section section-spacing">
+
+            <div class="container">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            PARA ARTRISTAS
+                        </span>
+
+                        <h2 class="section-title">
+                            BEATS
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./pages/beats.html"
+                        class="text-link"
+                    >
+
+                        Ver todos os Beats
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- BEAT GRID -->
+
+                <div class="product-grid product-grid--four">
+
+
+                    <!-- BEAT 01 -->
+
+                    <article class="product-card">
+
+                        <a
+                            href="./products/beats/sana.html"
+                            class="product-card__image-link"
+                        >
+
+                            <div class="product-card__image-wrapper">
+
+                                <img
+                                    src="./assets/images/beats/sana-cover.jpg"
+                                    alt="SANA — Afro Tech"
+                                    class="product-card__image"
+                                >
+
+
+                                <span class="product-card__badge">
+                                    NEW
+                                </span>
+
+
+                                <button
+                                    class="product-card__play"
+                                    type="button"
+                                    aria-label="Ouvir SANA"
+                                    data-audio-preview
+                                    data-audio="./assets/audio/beats/sana-preview.mp3"
+                                >
+
+                                    <i class="bi bi-play-fill"></i>
+
+                                </button>
+
+                            </div>
+
+                        </a>
+
+
+                        <div class="product-card__content">
+
+                            <div class="product-card__top">
+
+                                <div>
+
+                                    <h3 class="product-card__title">
+                                        SANA
+                                    </h3>
+
+                                    <span class="product-card__category">
+                                        Afro Tech
+                                    </span>
+
+                                </div>
+
+
+                                <span class="product-card__price">
+                                    15.000 Kz
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-card__meta">
+
+                                <span>
+                                    124 BPM
+                                </span>
+
+                                <span>
+                                    F# MIN
+                                </span>
+
+                                <span>
+                                    WAV
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BEAT 02 -->
+
+                    <article class="product-card">
+
+                        <a
+                            href="#"
+                            class="product-card__image-link"
+                        >
+
+                            <div class="product-card__image-wrapper">
+
+                                <img
+                                    src="./assets/images/beats/luanda-cover.jpg"
+                                    alt="LUANDA"
+                                    class="product-card__image"
+                                >
+
+
+                                <button
+                                    class="product-card__play"
+                                    type="button"
+                                    aria-label="Ouvir LUANDA"
+                                >
+
+                                    <i class="bi bi-play-fill"></i>
+
+                                </button>
+
+                            </div>
+
+                        </a>
+
+
+                        <div class="product-card__content">
+
+                            <div class="product-card__top">
+
+                                <div>
+
+                                    <h3 class="product-card__title">
+                                        LUANDA
+                                    </h3>
+
+                                    <span class="product-card__category">
+                                        Afro Drill
+                                    </span>
+
+                                </div>
+
+
+                                <span class="product-card__price">
+                                    15.000 Kz
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-card__meta">
+
+                                <span>
+                                    142 BPM
+                                </span>
+
+                                <span>
+                                    D MIN
+                                </span>
+
+                                <span>
+                                    WAV
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BEAT 03 -->
+
+                    <article class="product-card">
+
+                        <a
+                            href="#"
+                            class="product-card__image-link"
+                        >
+
+                            <div class="product-card__image-wrapper">
+
+                                <img
+                                    src="./assets/images/beats/after-dark-cover.jpg"
+                                    alt="AFTER DARK"
+                                    class="product-card__image"
+                                >
+
+
+                                <button
+                                    class="product-card__play"
+                                    type="button"
+                                    aria-label="Ouvir AFTER DARK"
+                                >
+
+                                    <i class="bi bi-play-fill"></i>
+
+                                </button>
+
+                            </div>
+
+                        </a>
+
+
+                        <div class="product-card__content">
+
+                            <div class="product-card__top">
+
+                                <div>
+
+                                    <h3 class="product-card__title">
+                                        AFTER DARK
+                                    </h3>
+
+                                    <span class="product-card__category">
+                                        Trap
+                                    </span>
+
+                                </div>
+
+
+                                <span class="product-card__price">
+                                    15.000 Kz
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-card__meta">
+
+                                <span>
+                                    138 BPM
+                                </span>
+
+                                <span>
+                                    C MIN
+                                </span>
+
+                                <span>
+                                    WAV
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BEAT 04 -->
+
+                    <article class="product-card">
+
+                        <a
+                            href="#"
+                            class="product-card__image-link"
+                        >
+
+                            <div class="product-card__image-wrapper">
+
+                                <img
+                                    src="./assets/images/beats/vision-cover.jpg"
+                                    alt="VISION"
+                                    class="product-card__image"
+                                >
+
+
+                                <button
+                                    class="product-card__play"
+                                    type="button"
+                                    aria-label="Ouvir VISION"
+                                >
+
+                                    <i class="bi bi-play-fill"></i>
+
+                                </button>
+
+                            </div>
+
+                        </a>
+
+
+                        <div class="product-card__content">
+
+                            <div class="product-card__top">
+
+                                <div>
+
+                                    <h3 class="product-card__title">
+                                        VISION
+                                    </h3>
+
+                                    <span class="product-card__category">
+                                        Afro Beat
+                                    </span>
+
+                                </div>
+
+
+                                <span class="product-card__price">
+                                    15.000 Kz
+                                </span>
+
+                            </div>
+
+
+                            <div class="product-card__meta">
+
+                                <span>
+                                    110 BPM
+                                </span>
+
+                                <span>
+                                    A MIN
+                                </span>
+
+                                <span>
+                                    WAV
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- CTA -->
+
+                <div class="section-footer">
+
+                    <a
+                        href="./pages/beats.html"
+                        class="button button--outline"
+                    >
+
+                        Ver todos os Beats
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            NOVIDADES NO UNIVERSO | LATEST DROPS
+        ====================================================== -->
+
+        <section class="drops-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            NOVIDADES NO UNIVERSO
+                        </span>
+
+                        <h2 class="section-title">
+                            ÚLTIMOS LANÇAMENTOS
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./pages/drops.html"
+                        class="text-link"
+                    >
+
+                        Ver todos
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- DROP LIST -->
+
+                <div class="drops-list">
+
+
+                    <!-- DROP 01 -->
+
+                    <article class="drop-item">
+
+                        <a
+                            href="./products/beats/sana.html"
+                            class="drop-item__image"
+                        >
+
+                            <img
+                                src="./assets/images/drops/sana-drop.jpg"
+                                alt="SANA Afro Tech"
+                            >
+
+                        </a>
+
+
+                        <div class="drop-item__info">
+
+                            <span class="drop-item__number">
+                                01
+                            </span>
+
+
+                            <div>
+
+                                <span class="drop-item__category">
+                                    BEAT
+                                </span>
+
+                                <h3>
+                                    SANA
+                                </h3>
+
+                                <p>
+                                    Afro Tech
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="drop-item__action">
+
+                            <span>
+                                15.000 Kz
+                            </span>
+
+                            <a
+                                href="./products/beats/sana.html"
+                                class="round-arrow"
+                                aria-label="Abrir SANA"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DROP 02 -->
+
+                    <article class="drop-item">
+
+                        <a
+                            href="#"
+                            class="drop-item__image"
+                        >
+
+                            <img
+                                src="./assets/images/drops/africa-drums.jpg"
+                                alt="Africa Drums"
+                            >
+
+                        </a>
+
+
+                        <div class="drop-item__info">
+
+                            <span class="drop-item__number">
+                                02
+                            </span>
+
+
+                            <div>
+
+                                <span class="drop-item__category">
+                                    DRUM KIT
+                                </span>
+
+                                <h3>
+                                    AFRICA DRUMS
+                                </h3>
+
+                                <p>
+                                    Vol. 01
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="drop-item__action">
+
+                            <span>
+                                EM BREVE
+                            </span>
+
+                            <a
+                                href="#"
+                                class="round-arrow"
+                                aria-label="Abrir Africa Drums"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DROP 03 -->
+
+                    <article class="drop-item">
+
+                        <a
+                            href="#"
+                            class="drop-item__image"
+                        >
+
+                            <img
+                                src="./assets/images/drops/sample-pack-01.jpg"
+                                alt="Sample Pack"
+                            >
+
+                        </a>
+
+
+                        <div class="drop-item__info">
+
+                            <span class="drop-item__number">
+                                03
+                            </span>
+
+
+                            <div>
+
+                                <span class="drop-item__category">
+                                    SAMPLE PACK
+                                </span>
+
+                                <h3>
+                                    ROOTS
+                                </h3>
+
+                                <p>
+                                    Melodic Samples
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="drop-item__action">
+
+                            <span>
+                                EM BREVE
+                            </span>
+
+                            <a
+                                href="#"
+                                class="round-arrow"
+                                aria-label="Abrir Roots"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DROP 04 -->
+
+                    <article class="drop-item">
+
+                        <a
+                            href="#"
+                            class="drop-item__image"
+                        >
+
+                            <img
+                                src="./assets/images/drops/new-release.jpg"
+                                alt="Novo lançamento musical"
+                            >
+
+                        </a>
+
+
+                        <div class="drop-item__info">
+
+                            <span class="drop-item__number">
+                                04
+                            </span>
+
+
+                            <div>
+
+                                <span class="drop-item__category">
+                                    MUSIC
+                                </span>
+
+                                <h3>
+                                    NEW RELEASE
+                                </h3>
+
+                                <p>
+                                    Jota Efi Beatz
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="drop-item__action">
+
+                            <span>
+                                LISTEN
+                            </span>
+
+                            <a
+                                href="./pages/music.html"
+                                class="round-arrow"
+                                aria-label="Ouvir lançamento"
+                            >
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+           PARA PRODUTORES | SOUND LIBRARY
+        ====================================================== -->
+
+        <section class="library-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            PARA PRODUTORES
+                        </span>
+
+                        <h2 class="section-title">
+                            SOUND LIBRARY
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./pages/sound-library.html"
+                        class="text-link"
+                    >
+
+                        Explorar biblioteca
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- LIBRARY GRID -->
+
+                <div class="library-grid">
+
+
+                    <!-- DRUM KITS -->
+
+                    <a
+                        href="./pages/sound-library.html#drum-kits"
+                        class="library-card library-card--large"
+                    >
+
+                        <div class="library-card__background">
+
+                            <img
+                                src="./assets/images/drum-kits/library-drums.jpg"
+                                alt="Drum Kits"
+                            >
+
+                        </div>
+
+
+                        <div class="library-card__overlay"></div>
+
+
+                        <div class="library-card__content">
+
+                            <span>
+                                01
+                            </span>
+
+                            <h3>
+                                DRUM KITS
+                            </h3>
+
+                            <p>
+                                Drums para construir
+                                a próxima faixa.
+                            </p>
+
+                            <div class="library-card__arrow">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- SAMPLES -->
+
+                    <a
+                        href="./pages/sound-library.html#samples"
+                        class="library-card"
+                    >
+
+                        <div class="library-card__background">
+
+                            <img
+                                src="./assets/images/samples/library-samples.jpg"
+                                alt="Sample Packs"
+                            >
+
+                        </div>
+
+
+                        <div class="library-card__overlay"></div>
+
+
+                        <div class="library-card__content">
+
+                            <span>
+                                02
+                            </span>
+
+                            <h3>
+                                SAMPLES
+                            </h3>
+
+                            <p>
+                                Melodias e texturas.
+                            </p>
+
+                            <div class="library-card__arrow">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- LOOPS -->
+
+                    <a
+                        href="./pages/sound-library.html#loops"
+                        class="library-card"
+                    >
+
+                        <div class="library-card__background">
+
+                            <img
+                                src="./assets/images/samples/library-loops.jpg"
+                                alt="Loops"
+                            >
+
+                        </div>
+
+
+                        <div class="library-card__overlay"></div>
+
+
+                        <div class="library-card__content">
+
+                            <span>
+                                03
+                            </span>
+
+                            <h3>
+                                LOOPS
+                            </h3>
+
+                            <p>
+                                Comece a ideia.
+                            </p>
+
+                            <div class="library-card__arrow">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- ONE SHOTS -->
+
+                    <a
+                        href="./pages/sound-library.html#one-shots"
+                        class="library-card"
+                    >
+
+                        <div class="library-card__background">
+
+                            <img
+                                src="./assets/images/samples/library-one-shots.jpg"
+                                alt="One Shots"
+                            >
+
+                        </div>
+
+
+                        <div class="library-card__overlay"></div>
+
+
+                        <div class="library-card__content">
+
+                            <span>
+                                04
+                            </span>
+
+                            <h3>
+                                ONE SHOTS
+                            </h3>
+
+                            <p>
+                                Pequenos sons.
+                                Grande impacto.
+                            </p>
+
+                            <div class="library-card__arrow">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- MIDI -->
+
+                    <a
+                        href="./pages/sound-library.html#midi"
+                        class="library-card"
+                    >
+
+                        <div class="library-card__background">
+
+                            <img
+                                src="./assets/images/samples/library-midi.jpg"
+                                alt="MIDI"
+                            >
+
+                        </div>
+
+
+                        <div class="library-card__overlay"></div>
+
+
+                        <div class="library-card__content">
+
+                            <span>
+                                05
+                            </span>
+
+                            <h3>
+                                MIDI
+                            </h3>
+
+                            <p>
+                                Ideias prontas para
+                                transformar.
+                            </p>
+
+                            <div class="library-card__arrow">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            MOST WANTED  | POPULAR PRODUCTS
+        ====================================================== -->
+
+        <section class="popular-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            MOST WANTED
+                        </span>
+
+                        <h2 class="section-title">
+                            POPULAR
+                        </h2>
+
+                    </div>
+
+
+                    <span class="section-header__note">
+                        OS MAIS PROCURADOS
+                    </span>
+
+                </div>
+
+
+                <div class="popular-layout">
+
+
+                    <!-- FEATURED PRODUCT -->
+
+                    <article class="popular-featured">
+
+                        <div class="popular-featured__image">
+
+                            <img
+                                src="./assets/images/drum-kits/africa-drums-featured.jpg"
+                                alt="Africa Drums Vol. 01"
+                            >
+
+                            <div class="popular-featured__gradient"></div>
+
+
+                            <div class="popular-featured__content">
+
+                                <span class="product-label">
+                                    SIGNATURE SOUND
+                                </span>
+
+                                <h3>
+                                    AFRICA DRUMS
+                                    <span>
+                                        VOL. 01
+                                    </span>
+                                </h3>
+
+                                <p>
+                                    Uma coleção de drums criada
+                                    para produtores que procuram
+                                    peso, groove e identidade.
+                                </p>
+
+
+                                <a
+                                    href="#"
+                                    class="button button--primary"
+                                >
+
+                                    Explorar Kit
+
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- POPULAR LIST -->
+
+                    <div class="popular-list">
+
+
+                        <article class="mini-product-card">
+
+                            <div class="mini-product-card__image">
+
+                                <img
+                                    src="./assets/images/drum-kits/kit-01.jpg"
+                                    alt="Drum Kit"
+                                >
+
+                            </div>
+
+
+                            <div class="mini-product-card__content">
+
+                                <span>
+                                    DRUM KIT
+                                </span>
+
+                                <h3>
+                                    JOTA EFI DRUMS
+                                </h3>
+
+                                <strong>
+                                    25.000 Kz
+                                </strong>
+
+                            </div>
+
+
+                            <a
+                                href="#"
+                                class="mini-product-card__arrow"
+                                aria-label="Abrir produto"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </article>
+
+
+                        <article class="mini-product-card">
+
+                            <div class="mini-product-card__image">
+
+                                <img
+                                    src="./assets/images/drum-kits/kit-02.jpg"
+                                    alt="Drum Kit"
+                                >
+
+                            </div>
+
+
+                            <div class="mini-product-card__content">
+
+                                <span>
+                                    SAMPLE PACK
+                                </span>
+
+                                <h3>
+                                    ROOTS SAMPLE PACK
+                                </h3>
+
+                                <strong>
+                                    20.000 Kz
+                                </strong>
+
+                            </div>
+
+
+                            <a
+                                href="#"
+                                class="mini-product-card__arrow"
+                                aria-label="Abrir produto"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </article>
+
+
+                        <article class="mini-product-card">
+
+                            <div class="mini-product-card__image">
+
+                                <img
+                                    src="./assets/images/drum-kits/kit-03.jpg"
+                                    alt="Loop Kit"
+                                >
+
+                            </div>
+
+
+                            <div class="mini-product-card__content">
+
+                                <span>
+                                    LOOP KIT
+                                </span>
+
+                                <h3>
+                                    NIGHT WAVES
+                                </h3>
+
+                                <strong>
+                                    18.000 Kz
+                                </strong>
+
+                            </div>
+
+
+                            <a
+                                href="#"
+                                class="mini-product-card__arrow"
+                                aria-label="Abrir produto"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </article>
+
+
+                        <article class="mini-product-card">
+
+                            <div class="mini-product-card__image">
+
+                                <img
+                                    src="./assets/images/drum-kits/kit-04.jpg"
+                                    alt="One Shot Kit"
+                                >
+
+                            </div>
+
+
+                            <div class="mini-product-card__content">
+
+                                <span>
+                                    ONE SHOTS
+                                </span>
+
+                                <h3>
+                                    IMPACT
+                                </h3>
+
+                                <strong>
+                                    12.000 Kz
+                                </strong>
+
+                            </div>
+
+
+                            <a
+                                href="#"
+                                class="mini-product-card__arrow"
+                                aria-label="Abrir produto"
+                            >
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </article>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            EXPLORAR POR TIPO | CATEGORIES
+        ====================================================== -->
+
+        <section class="categories-section">
+
+            <div class="container">
+
+                <div class="categories">
+
+                    <span class="section-label">
+                        EXPLORAR POR TIPO
+                    </span>
+
+
+                    <div class="categories__grid">
+
+                        <a
+                            href="./pages/sound-library.html#drum-kits"
+                            class="category-link"
+                        >
+
+                            <span>
+                                01
+                            </span>
+
+                            <strong>
+                                DRUM KITS
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="./pages/sound-library.html#loops"
+                            class="category-link"
+                        >
+
+                            <span>
+                                02
+                            </span>
+
+                            <strong>
+                                LOOPS
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="./pages/sound-library.html#midi"
+                            class="category-link"
+                        >
+
+                            <span>
+                                03
+                            </span>
+
+                            <strong>
+                                MIDI
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="./pages/sound-library.html#one-shots"
+                            class="category-link"
+                        >
+
+                            <span>
+                                04
+                            </span>
+
+                            <strong>
+                                ONE SHOTS
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="./pages/sound-library.html#samples"
+                            class="category-link"
+                        >
+
+                            <span>
+                                05
+                            </span>
+
+                            <strong>
+                                SAMPLES
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="./pages/beats.html"
+                            class="category-link"
+                        >
+
+                            <span>
+                                06
+                            </span>
+
+                            <strong>
+                                BEATS
+                            </strong>
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+           PARA OUVINTES | EXPLORAR POR TIPO | MUSIC / RELEASES
+        ====================================================== -->
+
+        <section class="music-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            PARA OUVINTES
+                        </span>
+
+                        <h2 class="section-title">
+                            MUSIC
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./pages/music.html"
+                        class="text-link"
+                    >
+
+                        Ver todos os lançamentos de Jota Efi Beatz
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="music-feature">
+
+
+                    <!-- COVER -->
+
+                    <div class="music-feature__cover">
+
+                        <img
+                            src="./assets/images/releases/sana-release.jpg"
+                            alt="SANA — Jota Efi Beatz"
+                        >
+
+                        <button
+                            type="button"
+                            class="music-feature__play"
+                            aria-label="Ouvir SANA"
+                            data-audio-preview
+                            data-audio="./assets/audio/beats/sana-preview.mp3"
+                        >
+
+                            <i class="bi bi-play-fill"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- INFORMATION -->
+
+                    <div class="music-feature__info">
+
+                        <span class="section-label">
+                            LATEST RELEASE
+                        </span>
+
+
+                        <h3>
+                            SANA
+                        </h3>
+
+
+                        <p class="music-feature__artist">
+                            JOTA EFI BEATZ
+                        </p>
+
+
+                        <p class="music-feature__description">
+
+                            Uma produção que representa
+                            a evolução do universo sonoro
+                            de Jota Efi Beatz.
+
+                        </p>
+
+
+                        <div class="music-platforms">
+
+                            <a
+                                href="#"
+                                class="platform-link"
+                            >
+
+                                <i class="bi bi-spotify"></i>
+
+                                Spotify
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="#"
+                                class="platform-link"
+                            >
+
+                                <i class="bi bi-youtube"></i>
+
+                                YouTube
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="#"
+                                class="platform-link"
+                            >
+
+                                <i class="bi bi-music-note-beamed"></i>
+
+                                Apple Music
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SELECTED PROJECTS
+        ====================================================== -->
+
+        <section class="projects-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            PRODUÇÕES SELECIONADAS
+                        </span>
+
+                        <h2 class="section-title">
+                            PRODUÇÕES
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./pages/projects.html"
+                        class="text-link"
+                    >
+
+                        Ver projetos
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 01 -->
+
+                    <article class="project-card project-card--large">
+
+                        <a
+                            href="#"
+                            class="project-card__image"
+                        >
+
+                            <img
+                                src="https://cdn-images.dzcdn.net/images/cover/989ee1aa679436c947f0b54bbcbf5ada/0x1900-000000-80-0-0.jpg"
+                                alt="Mwangolé Instrumental: (Jota EfiB Beatz)"
+                            >
+
+                            <div class="project-card__overlay"></div>
+
+
+                            <div class="project-card__content">
+
+                                <span>
+                                    <mark class="sub-nv">INSTRUMENTAL: JOTA EFI BEATZ</mark>
+                                </span>
+
+                                <h3>
+                                    SARISSARI
+                                </h3>
+
+                                <div class="project-card__arrow">
+
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 02 -->
+
+                    <article class="project-card">
+
+                        <a
+                            href="#"
+                            class="project-card__image"
+                        >
+
+                            <img
+                                src="./assets/images/projects/project-02.jpg"
+                                alt="Projeto Jota Efi"
+                            >
+
+                            <div class="project-card__overlay"></div>
+
+
+                            <div class="project-card__content">
+
+                                <span>
+                                    PRODUCTION
+                                </span>
+
+                                <h3>
+                                    PROJECT 02
+                                </h3>
+
+                                <div class="project-card__arrow">
+
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 03 -->
+
+                    <article class="project-card">
+
+                        <a
+                            href="#"
+                            class="project-card__image"
+                        >
+
+                            <img
+                                src="./assets/images/projects/project-03.jpg"
+                                alt=""
+                            >
+
+                            <div class="project-card__overlay"></div>
+
+
+                            <div class="project-card__content">
+
+                                <span>
+                                    BEAT × ARTIST
+                                </span>
+
+                                <h3>
+                                    PROJECT 03
+                                </h3>
+
+                                <div class="project-card__arrow">
+
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            ALÉM DAS BATIDAS | THE JOTA EFI UNIVERSE
+        ====================================================== -->
+
+        <section class="universe-section section-spacing">
+            <div class="container">
+                <div class="universe">
+                    <!-- VISUAL -->
+
+                    <div class="universe__visual">
+
+                        <img
+                            src="./assets/images/foto-perfil01.jpg"
+                            alt="Jota Efi Beatz no estúdio"
+                        >
+
+
+                        <div class="universe__visual-label">
+
+                            <span>
+                                01
+                            </span>
+
+                            THE UNIVERSE
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="universe__content">
+
+                        <span class="section-label">
+                            ALÉM DAS BATIDAS
+                        </span>
+
+
+                        <h2>
+
+                            Bem vindo
+                            <span>
+                                ao Universo.
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            Antes dos produtos existem ideias.
+                            Antes dos lançamentos existe processo.
+                            E antes de cada música existe uma visão.
+
+                        </p>
+
+
+                        <p>
+
+                            Jota Efi Beatz é um universo construído
+                            através de som, imagem, cultura e
+                            experiências.
+
+                        </p>
+
+
+                        <a
+                            href="./pages/about.html"
+                            class="button button--outline"
+                        >
+
+                            Conhecer a história
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FROM THE STUDIOn | STUDIO / LIFESTYLE
+        ====================================================== -->
+
+        <section class="studio-section section-spacing">
+
+            <div class="container">
+
+
+                <div class="studio-header">
+
+                    <span class="section-label">
+                        FROM THE STUDIO
+                    </span>
+
+                    <h2>
+                        ONDE 
+                        <span>
+                            O SOM 
+                        </span>
+                        COMEÇA.
+                    </h2>
+
+                </div>
+
+
+                <div class="studio-grid">
+
+
+                    <div class="studio-image studio-image--large">
+
+                        <img
+                            src="./assets/images/jotaefi.png"
+                            alt="Jota Efi Beatz no estúdio"
+                        >
+
+                    </div>
+
+
+                    <div class="studio-image">
+
+                        <img
+                            src="assets/images/jotaefi.png"
+                            alt="Produção musical Jota Efi"
+                        >
+
+                    </div>
+
+
+                    <div class="studio-image">
+
+                        <img
+                            src="assets/images/foto-perfil01.jpg"
+                            alt="Processo criativo Jota Efi"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="studio-footer">
+
+                    <p>
+                        Produção. Processo. Lifestyle.
+                    </p>
+
+
+                    <a
+                        href="https://www.instagram.com/jotaefibeatz/"
+                        target="_blank"
+                        class="text-link"
+                    >
+
+                        Instagram
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WORK WITH ME
+        ====================================================== -->
+
+        <section class="work-section">
+
+            <div class="container">
+
+                <div class="work">
+
+
+                    <div class="work__background-text">
+                        WORK
+                    </div>
+
+
+                    <div class="work__content">
+
+                        <span class="section-label">
+                            TRABALHAR COM JOTA EFI
+                        </span>
+
+
+                        <h2>
+
+                            VAMOS CRIAR
+                            <span>
+                                ALGUMA COISA
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            Beats, produção personalizada,
+                            projetos com artistas ou
+                            colaborações.
+
+                        </p>
+
+
+                        <a
+                            href="./pages/contact.html"
+                            class="button button--primary button--large"
+                        >
+
+                            Começar um projeto
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+
+            <!-- FOOTER TOP -->
+
+            <div class="footer-top">
+
+
+                <!-- BRAND -->
+
+                <div class="footer-brand">
+
+                    <a
+                        href="./index.html"
+                        class="footer-logo"
+                    >
+
+                        <img
+                            src="./assets/images/LOGO MEU/logo/logo-jotaefibeatz-semfundo.png"
+                            alt="Jota Efi Beatz"
+                        >
+
+                    </a>
+
+
+                    <p>
+
+                        Universe do Jota Efi Beatz.
+
+                        <br>
+
+                        Beats. Sounds. Music. Vision.
+
+                    </p>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://www.instagram.com/jotaefibeatz/"
+                            aria-label="Instagram"
+                        >
+
+                            <i class="bi bi-instagram"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.tiktok.com/@jotaefibeatz"
+                            aria-label="TikTok"
+                        >
+
+                            <i class="bi bi-tiktok"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.youtube.com/channel/UC3ObSe0lJ6YUykChEcRdfEg?sub_confirmation=1"
+                            aria-label="YouTube"
+                        >
+
+                            <i class="bi bi-youtube"></i>
+
+                        </a>
+
+                        <!--   LINK WHATSAPP 
+                        <a
+                            href="#"
+                            aria-label="WhatsApp"
+                        >
+
+                            <i class="bi bi-whatsapp"></i>
+
+                        </a>
+                        -->
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCTS -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Produtos
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="./pages/beats.html">
+                                Beats
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/sound-library.html#drum-kits">
+                                Drum Kits
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/sound-library.html#samples">
+                                Sample Packs
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/sound-library.html#loops">
+                                Loops
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/sound-library.html#midi">
+                                MIDI
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- EXPLORE -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explorar
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="./pages/drops.html">
+                                Latest Drops
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/music.html">
+                                Música
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/projects.html">
+                                Projetos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/about.html">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./pages/contact.html">
+                                Contacto
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SUPPORT -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Suporte
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="./pages/contact.html">
+                                Contactar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Termos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Licenciamento
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Política de Privacidade
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER NEWSLETTER -->
+
+            <div class="footer-newsletter">
+
+                <div>
+
+                    <span class="section-label">
+                        ESTEJA CONECTADO...
+                    </span>
+
+                    <h3>
+                        Não perca o próximo drop.
+                    </h3>
+
+                </div>
+
+
+                <form
+                    class="newsletter-form"
+                    action="#"
+                    method="post"
+                >
+
+                    <label
+                        for="newsletter-email"
+                        class="sr-only"
+                    >
+                        Seu email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        name="email"
+                        placeholder="O teu email"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        aria-label="Subscrever"
+                    >
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Jota Efi Beatz. TODOS OS DIREITOS RESERVADOS.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         SEARCH OVERLAY
+    ========================================================== -->
+
+    <div
+        class="search-overlay"
+        data-search-overlay
+        aria-hidden="true"
+    >
+
+        <div class="search-overlay__inner">
+
+            <button
+                class="search-overlay__close"
+                type="button"
+                aria-label="Fechar pesquisa"
+                data-search-close
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+            <span class="section-label">
+                SEARCH THE UNIVERSE
+            </span>
+
+
+            <form
+                class="search-form"
+                action="./pages/beats.html"
+                method="get"
+            >
+
+                <label
+                    for="site-search"
+                    class="sr-only"
+                >
+                    Pesquisar
+                </label>
+
+
+                <input
+                    type="search"
+                    id="site-search"
+                    name="q"
+                    placeholder="Pesquisar Beats, Kits, Samples..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    type="submit"
+                    aria-label="Pesquisar"
+                >
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         GLOBAL AUDIO PLAYER
+         Player fixo inferior.
+    ========================================================== -->
+
+    <div
+        class="global-player"
+        data-global-player
+        aria-hidden="true"
+    >
+
+        <div class="global-player__track">
+
+            <div class="global-player__cover">
+
+                <img
+                    src="./assets/images/beats/sana-cover.jpg"
+                    alt=""
+                    data-player-cover
+                >
+
+            </div>
+
+
+            <div class="global-player__info">
+
+                <span
+                    data-player-type
+                >
+                    BEAT
+                </span>
+
+                <strong
+                    data-player-title
+                >
+                    SANA
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="global-player__controls">
+
+            <button
+                type="button"
+                aria-label="Anterior"
+            >
+
+                <i class="bi bi-skip-start-fill"></i>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="global-player__play"
+                aria-label="Reproduzir"
+                data-player-play
+            >
+
+                <i class="bi bi-play-fill"></i>
+
+            </button>
+
+
+            <button
+                type="button"
+                aria-label="Próximo"
+            >
+
+                <i class="bi bi-skip-end-fill"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="global-player__progress">
+
+            <span data-player-current>
+                00:00
+            </span>
+
+
+            <div class="player-progress">
+
+                <div
+                    class="player-progress__bar"
+                    data-player-progress
+                ></div>
+
+            </div>
+
+
+            <span data-player-duration>
+                00:00
+            </span>
+
+        </div>
+
+
+        <div class="global-player__actions">
+
+            <button
+                type="button"
+                aria-label="Volume"
+            >
+
+                <i class="bi bi-volume-up"></i>
+
+            </button>
+
+
+            <button
+                type="button"
+                aria-label="Fechar player"
+                data-player-close
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script
+        src="./assets/js/navigation.js"
+    ></script>
+
+    <script
+        src="./assets/js/player.js"
+    ></script>
+
+    <script
+        src="./assets/js/products.js"
+    ></script>
+
+    <script
+        src="./assets/js/main.js"
+    ></script>
+
+</body>
+
+</html>
