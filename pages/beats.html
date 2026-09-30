@@ -7,155 +7,187 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#07100c">
+    <meta name="description"
+        content="Explore a biblioteca de beats da Jota Efi Beatz. Beats de Trap, Rap, Drill, Afro Beat, Guetto Zuk, Afro House, Afro Tech, Afro Drill, Funk e muito mais.">
 
-    <title>Beat — Jota Efi Beatz</title>
+    <meta name="author" content="Jota Efi Beatz">
 
-    <meta
-        name="description"
-        content="Adquire beats profissionais produzidos por Jota Efi Beatz."
-    >
+    <title>Beats — Jota Efi Beatz</title>
 
-    <!-- =====================================================
-         FONTS
-    ====================================================== -->
+    <!-- ==============================
+         FAVICON
+    =============================== -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
+    <!-- ==============================
+         GOOGLE FONTS
+    =============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ==============================
+         BOOTSTRAP ICONS
+    =============================== -->
+    <link
         rel="stylesheet"
-    >
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- =====================================================
+    <!-- ==============================
          CSS
-    ====================================================== -->
+    =============================== -->
 
+    <!-- Base -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="../css/components.css">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" href="../assets/css/responsive.css">
 
 </head>
 
 
-<body class="beat-page">
+<body>
 
-    <!-- =====================================================
-         PAGE LOADER
-    ====================================================== -->
+    <!-- =========================================================
+         SITE HEADER
+    ========================================================== -->
 
-    <div class="page-loader" id="pageLoader">
+    <header class="site-header">
 
-        <div class="loader-content">
+        <div class="site-header__inner">
 
-            <div class="loader-logo">
-                JEB
+            <!-- BRAND -->
+
+            <a href="../index.html" class="brand" aria-label="Jota Efi Beatz - Página inicial">
+
+                <img
+                    src="../assets/images/logo.png"
+                    alt="Jota Efi Beatz"
+                    class="brand__logo">
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav class="main-navigation" aria-label="Navegação principal">
+
+                <a href="../index.html" class="nav-link">
+                    Início
+                </a>
+
+                <a href="./beats.html" class="nav-link active" aria-current="page">
+                    Beats
+                </a>
+
+                <a href="./drums.html" class="nav-link">
+                    Drums & Samples
+                </a>
+
+                <a href="./music.html" class="nav-link">
+                    Música
+                </a>
+
+                <a href="./projects.html" class="nav-link">
+                    Projetos
+                </a>
+
+                <a href="./about.html" class="nav-link">
+                    Sobre
+                </a>
+
+            </nav>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+                <a href="#beat-library" class="header-action">
+                    <i class="bi bi-headphones"></i>
+                    <span>Ouvir Beats</span>
+                </a>
+
+                <!-- MOBILE MENU BUTTON -->
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-controls="mobile-navigation"
+                    aria-expanded="false"
+                    data-menu-toggle>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
             </div>
-
-            <span class="loader-line"></span>
 
         </div>
 
-    </div>
 
+        <!-- =====================================================
+             MOBILE NAVIGATION
+        ====================================================== -->
 
-    <!-- =====================================================
-         SITE HEADER
-    ====================================================== -->
+        <div
+            class="mobile-navigation"
+            id="mobile-navigation"
+            data-mobile-menu
+            aria-hidden="true">
 
-    <header class="site-header" id="siteHeader">
+            <nav class="mobile-navigation__nav" aria-label="Navegação mobile">
 
-        <div class="container">
+                <a href="../index.html" class="mobile-nav-link">
+                    <i class="bi bi-house"></i>
+                    <span>Início</span>
+                </a>
 
-            <nav class="main-navigation">
+                <a href="./beats.html"
+                    class="mobile-nav-link active"
+                    aria-current="page">
 
-                <!-- LOGO -->
-
-                <a href="index.html" class="brand-logo" aria-label="Jota Efi Beatz">
-
-                    <span class="brand-mark">
-                        JEB
-                    </span>
-
-                    <span class="brand-name">
-                        JOTA EFI
-                        <strong>BEATZ</strong>
-                    </span>
+                    <i class="bi bi-music-note-beamed"></i>
+                    <span>Beats</span>
 
                 </a>
 
+                <a href="./drums.html" class="mobile-nav-link">
 
-                <!-- DESKTOP NAVIGATION -->
+                    <i class="bi bi-disc"></i>
+                    <span>Drums & Samples</span>
 
-                <div class="nav-links">
+                </a>
 
-                    <a href="index.html">
-                        Home
-                    </a>
+                <a href="./music.html" class="mobile-nav-link">
 
-                    <a href="pages/beats.html" class="active">
-                        Beats
-                    </a>
+                    <i class="bi bi-play-circle"></i>
+                    <span>Música</span>
 
-                    <a href="pages/drops.html">
-                        Drops
-                    </a>
+                </a>
 
-                    <a href="pages/music.html">
-                        Music
-                    </a>
+                <a href="./projects.html" class="mobile-nav-link">
 
-                    <a href="pages/projects.html">
-                        Projects
-                    </a>
+                    <i class="bi bi-grid"></i>
+                    <span>Projetos</span>
 
-                    <a href="pages/about.html">
-                        About
-                    </a>
+                </a>
 
-                </div>
+                <a href="./about.html" class="mobile-nav-link">
 
+                    <i class="bi bi-person"></i>
+                    <span>Sobre</span>
 
-                <!-- NAV ACTIONS -->
-
-                <div class="nav-actions">
-
-                    <button
-                        class="nav-search"
-                        id="openSearch"
-                        type="button"
-                        aria-label="Pesquisar"
-                    >
-                        <span class="search-icon">
-                            ⌕
-                        </span>
-                    </button>
-
-
-                    <a
-                        href="pages/contact.html"
-                        class="nav-cta"
-                    >
-                        Work With Me
-                    </a>
-
-
-                    <button
-                        class="menu-toggle"
-                        id="menuToggle"
-                        type="button"
-                        aria-label="Abrir menu"
-                        aria-expanded="false"
-                    >
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </button>
-
-                </div>
+                </a>
 
             </nav>
 
@@ -164,124 +196,55 @@
     </header>
 
 
-    <!-- =====================================================
-         MOBILE NAVIGATION
-    ====================================================== -->
 
-    <div class="mobile-navigation" id="mobileNavigation">
-
-        <div class="mobile-nav-inner">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="pages/beats.html">
-                Beats
-            </a>
-
-            <a href="pages/drops.html">
-                Drops
-            </a>
-
-            <a href="pages/music.html">
-                Music
-            </a>
-
-            <a href="pages/projects.html">
-                Projects
-            </a>
-
-            <a href="pages/about.html">
-                About
-            </a>
-
-            <a href="pages/contact.html">
-                Contact
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         SEARCH OVERLAY
-    ====================================================== -->
-
-    <div class="search-overlay" id="searchOverlay">
-
-        <div class="search-overlay-inner">
-
-            <button
-                class="search-close"
-                id="closeSearch"
-                type="button"
-                aria-label="Fechar pesquisa"
-            >
-                ×
-            </button>
-
-            <span class="search-label">
-                SEARCH THE UNIVERSE
-            </span>
-
-            <form class="global-search-form">
-
-                <input
-                    type="search"
-                    id="globalSearchInput"
-                    placeholder="Search beats, drops, projects..."
-                    autocomplete="off"
-                >
-
-                <button type="submit">
-                    →
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
 
     <main>
 
 
-        <!-- =================================================
-             BREADCRUMB
-        ================================================== -->
+        <!-- =====================================================
+             BEATS HERO
+        ====================================================== -->
 
-        <section class="beat-breadcrumb">
+        <section class="beats-hero">
 
             <div class="container">
 
-                <div class="breadcrumb-wrapper">
+                <div class="beats-hero__content">
 
-                    <a href="index.html">
-                        Home
-                    </a>
-
-                    <span>
-                        /
+                    <span class="section-eyebrow">
+                        JOTA EFI BEATZ
                     </span>
 
-                    <a href="pages/beats.html">
-                        Beats
-                    </a>
+                    <h1 class="beats-hero__title">
+                        BEATS
+                    </h1>
 
-                    <span>
-                        /
-                    </span>
+                    <p class="beats-hero__description">
+                        Encontra o instrumental certo para transformar
+                        a tua próxima ideia em música.
+                    </p>
 
-                    <span class="current">
-                        SANA
-                    </span>
+                    <div class="beats-hero__meta">
+
+                        <span>
+                            <i class="bi bi-music-note-beamed"></i>
+                            Instrumentais
+                        </span>
+
+                        <span>
+                            <i class="bi bi-headphones"></i>
+                            Ouça antes de comprar
+                        </span>
+
+                        <span>
+                            <i class="bi bi-lightning-charge"></i>
+                            Produção Jota Efi Beatz
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -290,751 +253,515 @@
         </section>
 
 
-        <!-- =================================================
-             BEAT HERO
-        ================================================== -->
 
-        <section class="beat-detail">
+        <!-- =====================================================
+             BEAT LIBRARY
+        ====================================================== -->
+
+        <section
+            class="beat-library"
+            id="beat-library">
 
             <div class="container">
 
-                <div class="beat-detail-grid">
 
+                <!-- =================================================
+                     LIBRARY HEADER
+                ================================================== -->
 
-                    <!-- =====================================
-                         LEFT — COVER
-                    ====================================== -->
+                <div class="beat-library__header">
 
-                    <div class="beat-visual">
+                    <div class="beat-library__heading">
 
-                        <div class="beat-cover">
+                        <span class="section-eyebrow">
+                            LIBRARY
+                        </span>
 
-                            <img
-                                src="assets/images/beats/sana.jpg"
-                                alt="SANA — Jota Efi Beatz"
-                                loading="eager"
-                            >
-
-
-                            <div class="cover-overlay"></div>
-
-
-                            <div class="cover-top">
-
-                                <span class="cover-tag">
-                                    JOTA EFI BEATZ
-                                </span>
-
-                                <span class="cover-number">
-                                    #001
-                                </span>
-
-                            </div>
-
-
-                            <div class="cover-bottom">
-
-                                <span class="cover-type">
-                                    AFRO TECH
-                                </span>
-
-                                <h1>
-                                    SANA
-                                </h1>
-
-                                <span class="cover-producer">
-                                    PRODUCED BY
-                                    <strong>
-                                        JOTA EFI BEATZ
-                                    </strong>
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- VISUAL META -->
-
-                        <div class="beat-visual-meta">
-
-                            <div>
-
-                                <span>
-                                    BPM
-                                </span>
-
-                                <strong>
-                                    124
-                                </strong>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>
-                                    KEY
-                                </span>
-
-                                <strong>
-                                    F# MIN
-                                </strong>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>
-                                    LENGTH
-                                </span>
-
-                                <strong>
-                                    02:48
-                                </strong>
-
-                            </div>
-
-                        </div>
+                        <h2>
+                            Escolhe o teu Beat
+                        </h2>
 
                     </div>
 
 
+                    <div class="beat-library__count">
 
-                    <!-- =====================================
-                         RIGHT — INFORMATION
-                    ====================================== -->
+                        <span id="beats-count">
+                            09 Beats
+                        </span>
 
-                    <div class="beat-information">
+                    </div>
 
-
-                        <div class="beat-category">
-                            AFRO TECH / INSTRUMENTAL
-                        </div>
+                </div>
 
 
-                        <h1 class="beat-title">
-                            SANA
-                        </h1>
+
+                <!-- =================================================
+                     FILTERS
+                ================================================== -->
+
+                <div class="beat-filters" aria-label="Filtros de beats">
+
+                    <button
+                        class="beat-filter active"
+                        type="button"
+                        data-filter="all">
+
+                        Todos
+
+                    </button>
 
 
-                        <p class="beat-description">
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="trap">
 
-                            Uma atmosfera noturna, melódica e
-                            energética criada para artistas que
-                            querem transformar uma ideia numa
-                            música com identidade.
+                        Trap
 
-                        </p>
-
-
-                        <!-- PRODUCER -->
-
-                        <div class="beat-producer">
-
-                            <div class="producer-avatar">
-
-                                <span>
-                                    JE
-                                </span>
-
-                            </div>
+                    </button>
 
 
-                            <div class="producer-info">
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="rap">
 
-                                <span>
-                                    PRODUCED BY
-                                </span>
+                        Rap
 
-                                <strong>
-                                    Jota Efi Beatz
-                                </strong>
-
-                            </div>
-
-                        </div>
+                    </button>
 
 
-                        <!-- =================================
-                             AUDIO PLAYER
-                        ================================== -->
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="drill">
 
-                        <div class="beat-player-card">
+                        Drill
 
-                            <div class="player-main">
-
-                                <button
-                                    class="beat-play-button"
-                                    id="beatPlayButton"
-                                    type="button"
-                                    aria-label="Reproduzir beat"
-                                >
-
-                                    <span class="play-icon">
-                                        ▶
-                                    </span>
-
-                                </button>
+                    </button>
 
 
-                                <div class="player-content">
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="afrobeat">
 
-                                    <div class="player-heading">
+                        Afro Beat
 
-                                        <strong>
-                                            SANA
-                                        </strong>
-
-                                        <span>
-                                            02:48
-                                        </span>
-
-                                    </div>
+                    </button>
 
 
-                                    <div class="player-progress">
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="guettozuk">
 
-                                        <div
-                                            class="player-progress-bar"
-                                            id="beatProgress"
-                                        >
-                                        </div>
+                        Guetto Zuk
 
-                                    </div>
-
-
-                                    <div class="player-time">
-
-                                        <span id="currentTime">
-                                            00:00
-                                        </span>
-
-                                        <span>
-                                            02:48
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                    </button>
 
 
-                            <div class="player-controls">
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="afrohouse">
 
-                                <button
-                                    type="button"
-                                    id="volumeButton"
-                                    aria-label="Volume"
-                                >
-                                    VOL
-                                </button>
+                        Afro House
 
-                                <span>
-                                    PREVIEW
-                                </span>
-
-                            </div>
-
-                        </div>
+                    </button>
 
 
-                        <!-- =================================
-                             PRICE
-                        ================================== -->
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="afrotech">
 
-                        <div class="beat-purchase">
+                        Afro Tech
 
-                            <div class="price-block">
+                    </button>
 
-                                <span>
-                                    BEAT PRICE
-                                </span>
 
-                                <strong>
-                                    15.000 Kz
-                                </strong>
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="afrodrill">
 
-                            </div>
+                        Afro Drill
 
+                    </button>
+
+
+                    <button
+                        class="beat-filter"
+                        type="button"
+                        data-filter="funk">
+
+                        Funk
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BEATS GRID
+                ================================================== -->
+
+                <div
+                    class="beats-grid"
+                    id="beats-grid">
+
+
+                    <!-- =================================================
+                         BEAT CARD 01
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-001"
+                        data-category="trap">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-01.jpg"
+                                alt="Capa do beat Trap"
+                                loading="lazy">
 
                             <button
-                                class="purchase-button"
-                                id="purchaseBeat"
+                                class="beat-card__play"
                                 type="button"
-                            >
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-01.mp3">
 
-                                <span>
-                                    GET THIS BEAT
-                                </span>
-
-                                <span>
-                                    →
-                                </span>
+                                <i class="bi bi-play-fill"></i>
 
                             </button>
 
-                        </div>
-
-
-                        <!-- PURCHASE NOTE -->
-
-                        <p class="purchase-note">
-
-                            Licenciamento e entrega dos ficheiros
-                            são tratados diretamente após a compra.
-
-                        </p>
-
-
-                        <!-- =================================
-                             BEAT TAGS
-                        ================================== -->
-
-                        <div class="beat-tags">
-
-                            <span>
-                                Afro Tech
-                            </span>
-
-                            <span>
-                                Melodic
-                            </span>
-
-                            <span>
-                                Night
-                            </span>
-
-                            <span>
-                                124 BPM
-                            </span>
-
-                            <span>
-                                F# Minor
+                            <span class="beat-card__genre">
+                                TRAP
                             </span>
 
                         </div>
 
-                    </div>
 
-                </div>
+                        <div class="beat-card__body">
 
-            </div>
+                            <div class="beat-card__info">
 
-        </section>
+                                <h3 class="beat-card__title">
+                                    NIGHT RUN
+                                </h3>
 
-
-
-        <!-- =================================================
-             LICENSE SECTION
-        ================================================== -->
-
-        <section class="beat-license">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div>
-
-                        <span class="eyebrow">
-                            LICENSING
-                        </span>
-
-                        <h2>
-                            Escolhe como
-                            <br>
-                            queres usar o beat.
-                        </h2>
-
-                    </div>
-
-                    <p>
-
-                        Cada licença define os direitos de utilização
-                        do instrumental e os ficheiros entregues.
-
-                    </p>
-
-                </div>
-
-
-                <div class="license-grid">
-
-
-                    <!-- BASIC -->
-
-                    <article class="license-card">
-
-                        <div class="license-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Basic
-                        </h3>
-
-                        <p>
-                            Para demos, testes e lançamentos
-                            independentes com utilização limitada.
-                        </p>
-
-                        <strong>
-                            MP3
-                        </strong>
-
-                        <button type="button">
-                            Select →
-                        </button>
-
-                    </article>
-
-
-                    <!-- PREMIUM -->
-
-                    <article class="license-card featured">
-
-                        <div class="license-badge">
-                            MOST USED
-                        </div>
-
-                        <div class="license-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Premium
-                        </h3>
-
-                        <p>
-                            Para artistas que querem lançar a música
-                            oficialmente com ficheiros de maior qualidade.
-                        </p>
-
-                        <strong>
-                            WAV + MP3 + STEMS
-                        </strong>
-
-                        <button type="button">
-                            Select →
-                        </button>
-
-                    </article>
-
-
-                    <!-- EXCLUSIVE -->
-
-                    <article class="license-card">
-
-                        <div class="license-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Exclusive
-                        </h3>
-
-                        <p>
-                            O instrumental deixa de estar disponível
-                            para novas licenças após a aquisição.
-                        </p>
-
-                        <strong>
-                            FULL RIGHTS
-                        </strong>
-
-                        <button type="button">
-                            Contact →
-                        </button>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ABOUT THE BEAT
-        ================================================== -->
-
-        <section class="beat-about">
-
-            <div class="container">
-
-                <div class="beat-about-grid">
-
-
-                    <div class="beat-about-title">
-
-                        <span class="eyebrow">
-                            THE SOUND
-                        </span>
-
-                        <h2>
-                            Não é apenas
-                            <br>
-                            um instrumental.
-                        </h2>
-
-                    </div>
-
-
-                    <div class="beat-about-copy">
-
-                        <p>
-
-                            SANA foi construído para criar espaço
-                            para a voz do artista. A produção combina
-                            elementos electrónicos, percussão e
-                            melodias atmosféricas.
-
-                        </p>
-
-                        <p>
-
-                            O objetivo é deixar o artista entrar no
-                            universo do beat sem perder a própria
-                            identidade.
-
-                        </p>
-
-
-                        <div class="technical-data">
-
-                            <div>
-
-                                <span>
-                                    GENRE
-                                </span>
-
-                                <strong>
-                                    Afro Tech
-                                </strong>
-
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    BPM
-                                </span>
-
-                                <strong>
-                                    124
-                                </strong>
-
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    KEY
-                                </span>
-
-                                <strong>
-                                    F# Minor
-                                </strong>
-
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    PRODUCER
-                                </span>
-
-                                <strong>
+                                <span class="beat-card__producer">
                                     Jota Efi Beatz
-                                </strong>
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-001"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
 
                             </div>
 
                         </div>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+                    </article>
 
 
 
-        <!-- =================================================
-             RELATED BEATS
-        ================================================== -->
+                    <!-- =================================================
+                         BEAT CARD 02
+                    ================================================== -->
 
-        <section class="related-beats">
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-002"
+                        data-category="drill">
 
-            <div class="container">
-
-
-                <div class="section-heading horizontal">
-
-                    <div>
-
-                        <span class="eyebrow">
-                            KEEP EXPLORING
-                        </span>
-
-                        <h2>
-                            Mais beats
-                        </h2>
-
-                    </div>
-
-
-                    <a
-                        href="pages/beats.html"
-                        class="text-link"
-                    >
-                        View all beats →
-                    </a>
-
-                </div>
-
-
-                <div class="beat-grid">
-
-
-                    <!-- BEAT 01 -->
-
-                    <article class="beat-card">
-
-                        <a
-                            href="beat.html?id=luanda"
-                            class="beat-card-image"
-                        >
+                        <div class="beat-card__cover">
 
                             <img
-                                src="assets/images/beats/luanda.jpg"
-                                alt="LUANDA"
-                                loading="lazy"
-                            >
+                                src="../assets/images/beats/beat-02.jpg"
+                                alt="Capa do beat Drill"
+                                loading="lazy">
 
-                            <span class="beat-card-play">
-                                ▶
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-02.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                DRILL
                             </span>
 
-                        </a>
+                        </div>
 
 
-                        <div class="beat-card-info">
+                        <div class="beat-card__body">
 
-                            <div>
+                            <div class="beat-card__info">
 
-                                <span class="beat-card-category">
-                                    AFROBEAT
+                                <h3 class="beat-card__title">
+                                    DARK CITY
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
                                 </span>
 
-                                <h3>
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-002"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 03
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-003"
+                        data-category="afrobeat">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-03.jpg"
+                                alt="Capa do beat Afro Beat"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-03.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                AFRO BEAT
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
+                                    LAGOS
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-003"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 04
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-004"
+                        data-category="afrotech">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-04.jpg"
+                                alt="Capa do beat Afro Tech"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-04.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                AFRO TECH
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
+                                    SANA
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-004"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 05
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-005"
+                        data-category="guettozuk">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-05.jpg"
+                                alt="Capa do beat Guetto Zuk"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-05.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                GUETTO ZUK
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
                                     LUANDA
                                 </h3>
 
-                            </div>
-
-                            <strong>
-                                15.000 Kz
-                            </strong>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- BEAT 02 -->
-
-                    <article class="beat-card">
-
-                        <a
-                            href="beat.html?id=midnight"
-                            class="beat-card-image"
-                        >
-
-                            <img
-                                src="assets/images/beats/midnight.jpg"
-                                alt="MIDNIGHT"
-                                loading="lazy"
-                            >
-
-                            <span class="beat-card-play">
-                                ▶
-                            </span>
-
-                        </a>
-
-
-                        <div class="beat-card-info">
-
-                            <div>
-
-                                <span class="beat-card-category">
-                                    TRAP
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
                                 </span>
 
-                                <h3>
-                                    MIDNIGHT
-                                </h3>
-
                             </div>
 
-                            <strong>
-                                15.000 Kz
-                            </strong>
 
-                        </div>
+                            <div class="beat-card__footer">
 
-                    </article>
-
-
-
-                    <!-- BEAT 03 -->
-
-                    <article class="beat-card">
-
-                        <a
-                            href="beat.html?id=after-dark"
-                            class="beat-card-image"
-                        >
-
-                            <img
-                                src="assets/images/beats/after-dark.jpg"
-                                alt="AFTER DARK"
-                                loading="lazy"
-                            >
-
-                            <span class="beat-card-play">
-                                ▶
-                            </span>
-
-                        </a>
-
-
-                        <div class="beat-card-info">
-
-                            <div>
-
-                                <span class="beat-card-category">
-                                    DRILL
+                                <span class="beat-card__price">
+                                    15.000 Kz
                                 </span>
 
-                                <h3>
-                                    AFTER DARK
-                                </h3>
+                                <a
+                                    href="./beat.html?id=beat-005"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
 
                             </div>
-
-                            <strong>
-                                15.000 Kz
-                            </strong>
 
                         </div>
 
@@ -1042,49 +769,310 @@
 
 
 
-                    <!-- BEAT 04 -->
+                    <!-- =================================================
+                         BEAT CARD 06
+                    ================================================== -->
 
-                    <article class="beat-card">
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-006"
+                        data-category="rap">
 
-                        <a
-                            href="beat.html?id=zona-sul"
-                            class="beat-card-image"
-                        >
+                        <div class="beat-card__cover">
 
                             <img
-                                src="assets/images/beats/zona-sul.jpg"
-                                alt="ZONA SUL"
-                                loading="lazy"
-                            >
+                                src="../assets/images/beats/beat-06.jpg"
+                                alt="Capa do beat Rap"
+                                loading="lazy">
 
-                            <span class="beat-card-play">
-                                ▶
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-06.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                RAP
                             </span>
 
-                        </a>
+                        </div>
 
 
-                        <div class="beat-card-info">
+                        <div class="beat-card__body">
 
-                            <div>
+                            <div class="beat-card__info">
 
-                                <span class="beat-card-category">
-                                    GUETTOZUK
-                                </span>
-
-                                <h3>
-                                    ZONA SUL
+                                <h3 class="beat-card__title">
+                                    NO SIGNAL
                                 </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
 
                             </div>
 
-                            <strong>
-                                15.000 Kz
-                            </strong>
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-006"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 07
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-007"
+                        data-category="afrodrill">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-07.jpg"
+                                alt="Capa do beat Afro Drill"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-07.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                AFRO DRILL
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
+                                    PRESSURE
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-007"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 08
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-008"
+                        data-category="afrohouse">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-08.jpg"
+                                alt="Capa do beat Afro House"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-08.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                AFRO HOUSE
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
+                                    SUNSET
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-008"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BEAT CARD 09
+                    ================================================== -->
+
+                    <article
+                        class="beat-card"
+                        data-beat-id="beat-009"
+                        data-category="funk">
+
+                        <div class="beat-card__cover">
+
+                            <img
+                                src="../assets/images/beats/beat-09.jpg"
+                                alt="Capa do beat Funk"
+                                loading="lazy">
+
+                            <button
+                                class="beat-card__play"
+                                type="button"
+                                aria-label="Reproduzir beat"
+                                data-play-beat
+                                data-audio="../assets/audio/beats/beat-09.mp3">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </button>
+
+                            <span class="beat-card__genre">
+                                FUNK
+                            </span>
+
+                        </div>
+
+
+                        <div class="beat-card__body">
+
+                            <div class="beat-card__info">
+
+                                <h3 class="beat-card__title">
+                                    AFTER HOURS
+                                </h3>
+
+                                <span class="beat-card__producer">
+                                    Jota Efi Beatz
+                                </span>
+
+                            </div>
+
+
+                            <div class="beat-card__footer">
+
+                                <span class="beat-card__price">
+                                    15.000 Kz
+                                </span>
+
+                                <a
+                                    href="./beat.html?id=beat-009"
+                                    class="beat-card__buy">
+
+                                    Comprar
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     EMPTY STATE
+                ================================================== -->
+
+                <div
+                    class="beats-empty"
+                    id="beats-empty"
+                    hidden>
+
+                    <i class="bi bi-music-note-list"></i>
+
+                    <h3>
+                        Nenhum beat encontrado
+                    </h3>
+
+                    <p>
+                        Experimenta selecionar outra categoria.
+                    </p>
 
                 </div>
 
@@ -1094,39 +1082,95 @@
 
 
 
-        <!-- =================================================
-             CTA
-        ================================================== -->
+        <!-- =========================================================
+             FEATURED SECTION
+        ========================================================== -->
 
-        <section class="producer-cta">
+        <section class="beats-featured">
 
             <div class="container">
 
-                <div class="producer-cta-inner">
+                <div class="beats-featured__wrapper">
 
-                    <span class="eyebrow">
-                        CUSTOM PRODUCTION
+
+                    <div class="beats-featured__content">
+
+                        <span class="section-eyebrow">
+                            JOTA EFI BEATZ
+                        </span>
+
+                        <h2>
+                            O beat certo pode mudar tudo.
+                        </h2>
+
+                        <p>
+                            Explora a biblioteca, encontra a tua sonoridade
+                            e transforma a próxima ideia em música.
+                        </p>
+
+                        <a
+                            href="#beat-library"
+                            class="button button--primary">
+
+                            Explorar Beats
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="beats-featured__visual">
+
+                        <div class="beats-featured__visual-glow"></div>
+
+                        <span>
+                            JEB
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             CALL TO ACTION
+        ========================================================== -->
+
+        <section class="beats-cta">
+
+            <div class="container">
+
+                <div class="beats-cta__content">
+
+                    <span class="section-eyebrow">
+                        NÃO ENCONTRASTE O QUE PROCURAS?
                     </span>
 
                     <h2>
-                        Procuras algo
-                        <br>
-                        feito para ti?
+                        Precisas de um beat feito para ti?
                     </h2>
 
                     <p>
-
-                        Se nenhum beat do catálogo encaixar
-                        na tua visão, podemos construir algo
-                        exclusivamente para o teu projeto.
-
+                        Trabalha diretamente com a Jota Efi Beatz
+                        para desenvolver uma produção personalizada.
                     </p>
 
                     <a
-                        href="pages/contact.html"
-                        class="primary-button"
-                    >
-                        Start a project →
+                        href="./contact.html"
+                        class="button button--outline">
+
+                        Falar sobre um Beat
+
+                        <i class="bi bi-arrow-right"></i>
+
                     </a>
 
                 </div>
@@ -1139,38 +1183,43 @@
 
 
 
-    <!-- =====================================================
-         GLOBAL AUDIO PLAYER
-    ====================================================== -->
+    <!-- =========================================================
+         GLOBAL PLAYER
+    ========================================================== -->
 
-    <div
-        class="global-player"
-        id="globalPlayer"
-        aria-hidden="true"
-    >
+    <aside
+        class="audio-player"
+        id="audio-player"
+        aria-label="Player de beats">
 
-        <div class="global-player-inner">
+        <div class="audio-player__inner">
 
 
-            <div class="global-track">
+            <!-- CURRENT BEAT -->
 
-                <div class="global-track-cover">
+            <div class="audio-player__track">
+
+                <div class="audio-player__cover">
 
                     <img
-                        src="assets/images/beats/sana.jpg"
-                        alt=""
-                    >
+                        src="../assets/images/beats/default.jpg"
+                        alt="Capa do beat atual"
+                        id="player-cover">
 
                 </div>
 
 
-                <div class="global-track-info">
+                <div class="audio-player__info">
 
-                    <strong id="globalTrackTitle">
-                        SANA
+                    <span class="audio-player__label">
+                        A REPRODUZIR
+                    </span>
+
+                    <strong id="player-title">
+                        Seleciona um beat
                     </strong>
 
-                    <span>
+                    <span id="player-producer">
                         Jota Efi Beatz
                     </span>
 
@@ -1179,205 +1228,185 @@
             </div>
 
 
-            <div class="global-player-controls">
+            <!-- CONTROLS -->
+
+            <div class="audio-player__controls">
 
                 <button
                     type="button"
-                    id="globalPrevious"
-                    aria-label="Anterior"
-                >
-                    ‹
-                </button>
+                    class="audio-player__button"
+                    id="player-play"
+                    aria-label="Reproduzir">
 
+                    <i class="bi bi-play-fill"></i>
 
-                <button
-                    type="button"
-                    id="globalPlay"
-                    class="global-play"
-                    aria-label="Reproduzir"
-                >
-                    ▶
-                </button>
-
-
-                <button
-                    type="button"
-                    id="globalNext"
-                    aria-label="Próximo"
-                >
-                    ›
                 </button>
 
             </div>
 
 
-            <div class="global-player-progress">
+            <!-- PROGRESS -->
 
-                <span id="globalCurrentTime">
-                    00:00
+            <div class="audio-player__progress">
+
+                <span id="player-current-time">
+                    0:00
                 </span>
 
-                <div class="global-progress-track">
+                <input
+                    type="range"
+                    id="player-progress"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Progresso do áudio">
 
-                    <div
-                        class="global-progress-bar"
-                        id="globalProgressBar"
-                    >
-                    </div>
-
-                </div>
-
-                <span id="globalDuration">
-                    00:00
+                <span id="player-duration">
+                    0:00
                 </span>
 
             </div>
 
 
-            <button
-                type="button"
-                class="global-player-close"
-                id="closeGlobalPlayer"
-                aria-label="Fechar player"
-            >
-                ×
-            </button>
+            <!-- VOLUME -->
+
+            <div class="audio-player__volume">
+
+                <i class="bi bi-volume-up"></i>
+
+                <input
+                    type="range"
+                    id="player-volume"
+                    min="0"
+                    max="1"
+                    value="1"
+                    step="0.01"
+                    aria-label="Volume">
+
+            </div>
+
 
         </div>
 
-    </div>
+    </aside>
 
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+    <!-- =========================================================
+         SITE FOOTER
+    ========================================================== -->
 
     <footer class="site-footer">
 
         <div class="container">
 
-            <div class="footer-top">
+            <div class="site-footer__top">
 
 
-                <div class="footer-brand">
+                <!-- BRAND -->
+
+                <div class="site-footer__brand">
 
                     <a
-                        href="index.html"
-                        class="brand-logo"
-                    >
+                        href="../index.html"
+                        class="footer-logo">
 
-                        <span class="brand-mark">
-                            JEB
-                        </span>
-
-                        <span class="brand-name">
-                            JOTA EFI
-                            <strong>BEATZ</strong>
-                        </span>
+                        <img
+                            src="../assets/images/logo.png"
+                            alt="Jota Efi Beatz">
 
                     </a>
 
-
                     <p>
-
-                        Producer.
-                        Sound.
-                        Identity.
-
+                        Producer. Beatmaker. Violinist.
                     </p>
 
                 </div>
 
 
-                <div class="footer-column">
+                <!-- FOOTER NAV -->
 
-                    <span>
-                        EXPLORE
-                    </span>
+                <div class="site-footer__column">
 
-                    <a href="pages/beats.html">
+                    <h3>
+                        Explorar
+                    </h3>
+
+                    <a href="./beats.html">
                         Beats
                     </a>
 
-                    <a href="pages/drops.html">
-                        Drops
+                    <a href="./drums.html">
+                        Drums & Samples
                     </a>
 
-                    <a href="pages/music.html">
-                        Music
+                    <a href="./music.html">
+                        Música
                     </a>
 
-                    <a href="pages/projects.html">
-                        Projects
+                    <a href="./projects.html">
+                        Projetos
                     </a>
 
                 </div>
 
 
-                <div class="footer-column">
+                <!-- FOOTER COMPANY -->
 
-                    <span>
-                        CONNECT
-                    </span>
+                <div class="site-footer__column">
 
-                    <a href="#">
+                    <h3>
+                        Jota Efi Beatz
+                    </h3>
+
+                    <a href="./about.html">
+                        Sobre
+                    </a>
+
+                    <a href="./contact.html">
+                        Contacto
+                    </a>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div class="site-footer__column">
+
+                    <h3>
+                        Social
+                    </h3>
+
+                    <a href="#" target="_blank" rel="noopener noreferrer">
                         Instagram
                     </a>
 
-                    <a href="#">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
                         TikTok
                     </a>
 
-                    <a href="#">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
                         YouTube
                     </a>
 
-                    <a href="pages/contact.html">
-                        Contact
-                    </a>
-
                 </div>
 
-
-                <div class="footer-column footer-newsletter">
-
-                    <span>
-                        STAY IN THE UNIVERSE
-                    </span>
-
-                    <p>
-                        Novos beats, drops e projetos.
-                    </p>
-
-                    <form class="newsletter-form">
-
-                        <input
-                            type="email"
-                            placeholder="Your email"
-                            required
-                        >
-
-                        <button type="submit">
-                            →
-                        </button>
-
-                    </form>
-
-                </div>
 
             </div>
 
 
-            <div class="footer-bottom">
+            <!-- FOOTER BOTTOM -->
+
+            <div class="site-footer__bottom">
+
+                <p>
+                    © 2026 Jota Efi Beatz. Todos os direitos reservados.
+                </p>
 
                 <span>
-                    © 2026 Jota Efi Beatz.
-                    All rights reserved.
-                </span>
-
-                <span>
-                    LUANDA — ANGOLA
+                    Universo do Produtor
                 </span>
 
             </div>
@@ -1388,335 +1417,27 @@
 
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          AUDIO ELEMENT
-    ====================================================== -->
+    ========================================================== -->
 
     <audio
-        id="beatAudio"
-        preload="metadata"
-    >
-        <source
-            src="assets/audio/beats/sana.mp3"
-            type="audio/mpeg"
-        >
-
-        O teu navegador não suporta áudio.
+        id="global-audio"
+        preload="metadata">
     </audio>
 
 
 
-    <!-- =====================================================
-         PURCHASE MODAL
-    ====================================================== -->
-
-    <div
-        class="modal"
-        id="purchaseModal"
-        aria-hidden="true"
-    >
-
-        <div class="modal-backdrop"></div>
-
-
-        <div class="modal-content">
-
-
-            <button
-                type="button"
-                class="modal-close"
-                id="closePurchaseModal"
-                aria-label="Fechar"
-            >
-                ×
-            </button>
-
-
-            <span class="eyebrow">
-                GET THE BEAT
-            </span>
-
-
-            <h2>
-                SANA
-            </h2>
-
-
-            <p>
-
-                Para continuar com a aquisição deste beat,
-                entra em contacto diretamente com Jota Efi Beatz.
-
-            </p>
-
-
-            <div class="modal-price">
-
-                <span>
-                    PRICE
-                </span>
-
-                <strong>
-                    15.000 Kz
-                </strong>
-
-            </div>
-
-
-            <a
-                href="https://wa.me/244000000000?text=Olá%20Jota%20Efi%20Beatz.%20Tenho%20interesse%20no%20beat%20SANA."
-                class="primary-button modal-whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Continue on WhatsApp →
-            </a>
-
-
-            <span class="modal-note">
-                Resposta e confirmação são feitas diretamente.
-            </span>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
+    <!-- =========================================================
          JAVASCRIPT
-    ====================================================== -->
+    ========================================================== -->
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/player.js"></script>
+    <script src="../js/main.js"></script>
 
+    <script src="../js/navigation.js"></script>
 
-    <!-- PAGE-SPECIFIC SCRIPT -->
+    <script src="../js/player.js"></script>
 
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            /* =============================================
-               BEAT AUDIO
-            ============================================== */
-
-            const audio = document.getElementById("beatAudio");
-
-            const playButton =
-                document.getElementById("beatPlayButton");
-
-            const progress =
-                document.getElementById("beatProgress");
-
-            const currentTime =
-                document.getElementById("currentTime");
-
-
-            if (audio && playButton) {
-
-                playButton.addEventListener("click", () => {
-
-                    if (audio.paused) {
-
-                        audio.play();
-
-                        playButton.classList.add("playing");
-
-                        playButton.querySelector(".play-icon").textContent = "Ⅱ";
-
-                    } else {
-
-                        audio.pause();
-
-                        playButton.classList.remove("playing");
-
-                        playButton.querySelector(".play-icon").textContent = "▶";
-
-                    }
-
-                });
-
-
-                audio.addEventListener("timeupdate", () => {
-
-                    if (!audio.duration) return;
-
-                    const percentage =
-                        (audio.currentTime / audio.duration) * 100;
-
-                    if (progress) {
-                        progress.style.width = `${percentage}%`;
-                    }
-
-
-                    if (currentTime) {
-
-                        const minutes =
-                            Math.floor(audio.currentTime / 60);
-
-                        const seconds =
-                            Math.floor(audio.currentTime % 60)
-                                .toString()
-                                .padStart(2, "0");
-
-                        currentTime.textContent =
-                            `${minutes}:${seconds}`;
-
-                    }
-
-                });
-
-
-                audio.addEventListener("ended", () => {
-
-                    playButton.classList.remove("playing");
-
-                    playButton.querySelector(".play-icon").textContent = "▶";
-
-                    if (progress) {
-                        progress.style.width = "0%";
-                    }
-
-                });
-
-            }
-
-
-
-            /* =============================================
-               PROGRESS CLICK
-            ============================================== */
-
-            const progressContainer =
-                document.querySelector(".player-progress");
-
-
-            if (progressContainer && audio) {
-
-                progressContainer.addEventListener("click", (event) => {
-
-                    if (!audio.duration) return;
-
-                    const rect =
-                        progressContainer.getBoundingClientRect();
-
-                    const position =
-                        event.clientX - rect.left;
-
-                    const percentage =
-                        position / rect.width;
-
-                    audio.currentTime =
-                        audio.duration * percentage;
-
-                });
-
-            }
-
-
-
-            /* =============================================
-               PURCHASE MODAL
-            ============================================== */
-
-            const purchaseButton =
-                document.getElementById("purchaseBeat");
-
-            const purchaseModal =
-                document.getElementById("purchaseModal");
-
-            const closePurchaseModal =
-                document.getElementById("closePurchaseModal");
-
-            const modalBackdrop =
-                purchaseModal?.querySelector(".modal-backdrop");
-
-
-            function openPurchaseModal() {
-
-                if (!purchaseModal) return;
-
-                purchaseModal.classList.add("active");
-
-                purchaseModal.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-
-                document.body.classList.add("modal-open");
-
-            }
-
-
-            function closeModal() {
-
-                if (!purchaseModal) return;
-
-                purchaseModal.classList.remove("active");
-
-                purchaseModal.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-                document.body.classList.remove("modal-open");
-
-            }
-
-
-            purchaseButton?.addEventListener(
-                "click",
-                openPurchaseModal
-            );
-
-
-            closePurchaseModal?.addEventListener(
-                "click",
-                closeModal
-            );
-
-
-            modalBackdrop?.addEventListener(
-                "click",
-                closeModal
-            );
-
-
-            document.addEventListener("keydown", (event) => {
-
-                if (event.key === "Escape") {
-
-                    closeModal();
-
-                }
-
-            });
-
-
-
-            /* =============================================
-               PAGE LOADER
-            ============================================== */
-
-            const loader =
-                document.getElementById("pageLoader");
-
-
-            window.addEventListener("load", () => {
-
-                setTimeout(() => {
-
-                    loader?.classList.add("loaded");
-
-                }, 400);
-
-            });
-
-        });
-
-    </script>
 
 </body>
 
