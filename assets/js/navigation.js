@@ -1,1448 +1,750 @@
 /* ============================================================
-   JOTA EFI BEATZ — PRODUCER UNIVERSE
-   navigation.js
+   JOTA EFI BEATZ
+   NAVIGATION SYSTEM
    ------------------------------------------------------------
-   Navigation System
-   Desktop / Mobile / Dropdowns / Active Links
-   Submenus / Outside Click / Keyboard
+   Arquivo: assets/js/navigation.js
+   Compatível com: index.html
    ============================================================ */
 
-"use strict";
+(function () {
+    "use strict";
 
+    /* ========================================================
+       CONFIGURAÇÃO
+       ======================================================== */
 
-/* ============================================================
-   01. NAVIGATION CONFIG
-   ============================================================ */
-
-const JOTA_NAV = {
-
-    selectors: {
-
-        header: ".header",
-
-        nav: ".nav",
-
-        navList: ".nav__list",
-
-        navLink: ".nav__link",
-
-        navItem: ".nav__item",
-
-        dropdown: ".dropdown",
-
-        dropdownTrigger: ".dropdown__trigger",
-
-        dropdownMenu: ".dropdown__menu",
-
-        mobileNav: ".mobile-nav",
-
-        mobileNavList: ".mobile-nav__list",
-
-        mobileNavItem: ".mobile-nav__item",
-
-        mobileNavLink: ".mobile-nav__link",
-
-        mobileSubmenu: ".mobile-nav__submenu",
-
-        menuToggle: ".menu-toggle",
-
-        overlay: ".navigation-overlay"
-
-    },
-
-    classes: {
-
-        active: "is-active",
-
-        open: "is-open",
-
-        current: "is-current",
-
-        scrolled: "is-scrolled"
-
-    },
-
-    config: {
-
+    const CONFIG = {
         mobileBreakpoint: 900,
-
-        scrollOffset: 80
-
-    }
-
-};
-
-
-/* ============================================================
-   02. INITIALIZATION
-   ============================================================ */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        initNavigation();
-
-    }
-);
+        headerScrolledClass: "is-scrolled",
+        mobileOpenClass: "is-open",
+        dropdownOpenClass: "is-open",
+        activeClass: "is-active",
+        bodyMenuClass: "menu-is-open",
+        scrollOffset: 20
+    };
 
 
-/* ============================================================
-   03. MAIN INITIALIZER
-   ============================================================ */
+    /* ========================================================
+       ELEMENTOS DO INDEX.HTML
+       ======================================================== */
 
-function initNavigation() {
+    let elements = {
+        header: null,
+        menuToggle: null,
 
-    const navigation =
-        document.querySelector(
-            JOTA_NAV.selectors.nav
+        desktopNavigation: null,
+        desktopList: null,
+        desktopItems: [],
+        desktopLinks: [],
+
+        desktopDropdowns: [],
+        desktopDropdownTriggers: [],
+        desktopDropdownMenus: [],
+
+        mobileNavigation: null,
+        mobileInner: null,
+        mobileList: null,
+        mobileItems: [],
+        mobileLinks: [],
+
+        mobileDropdowns: [],
+        mobileDropdownToggles: [],
+        mobileSubmenus: [],
+        mobileSubmenuLinks: []
+    };
+
+
+    /* ========================================================
+       ESTADO
+       ======================================================== */
+
+    const state = {
+        mobileMenuOpen: false,
+        desktopDropdownOpen: null,
+        mobileDropdownOpen: null,
+        currentMode: null
+    };
+
+
+    /* ========================================================
+       INICIALIZAÇÃO
+       ======================================================== */
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        cacheElements();
+
+        /*
+         * Se o header principal não existir,
+         * não tentamos executar o sistema.
+         */
+        if (!elements.header) {
+            console.warn(
+                "[Jota Efi Navigation] .site-header não foi encontrado."
+            );
+            return;
+        }
+
+        setupHeader();
+
+        setupMenuToggle();
+
+        setupMobileNavigation();
+
+        setupDesktopNavigation();
+
+        setupDesktopDropdowns();
+
+        setupMobileDropdowns();
+
+        setupOutsideClick();
+
+        setupEscapeKey();
+
+        setupScrollHeader();
+
+        setupActivePage();
+
+        setupResize();
+
+        setupAccessibility();
+
+        updateNavigationMode();
+
+        exposeNavigationAPI();
+
+    });
+
+
+    /* ========================================================
+       CACHE DOS ELEMENTOS
+       ======================================================== */
+
+    function cacheElements() {
+
+        /* HEADER */
+
+        elements.header = document.querySelector(
+            ".site-header"
+        );
+
+        elements.menuToggle = document.querySelector(
+            ".menu-toggle"
         );
 
 
-    const mobileNavigation =
-        document.querySelector(
-            JOTA_NAV.selectors.mobileNav
+        /* DESKTOP NAVIGATION */
+
+        elements.desktopNavigation = document.querySelector(
+            ".main-nav"
+        );
+
+        elements.desktopList = document.querySelector(
+            ".main-nav .nav__list"
+        );
+
+        elements.desktopItems = Array.from(
+            document.querySelectorAll(
+                ".main-nav .nav__item"
+            )
+        );
+
+        elements.desktopLinks = Array.from(
+            document.querySelectorAll(
+                ".main-nav .nav__link"
+            )
         );
 
 
-    if (!navigation && !mobileNavigation) {
+        /* DESKTOP DROPDOWNS */
 
-        return;
+        elements.desktopDropdowns = Array.from(
+            document.querySelectorAll(
+                ".main-nav .dropdown"
+            )
+        );
 
+        elements.desktopDropdownTriggers = Array.from(
+            document.querySelectorAll(
+                ".main-nav .dropdown__trigger"
+            )
+        );
+
+        elements.desktopDropdownMenus = Array.from(
+            document.querySelectorAll(
+                ".main-nav .dropdown__menu"
+            )
+        );
+
+
+        /* MOBILE NAVIGATION */
+
+        elements.mobileNavigation = document.querySelector(
+            "#mobile-navigation"
+        );
+
+        elements.mobileInner = document.querySelector(
+            "#mobile-navigation .mobile-nav__inner"
+        );
+
+        elements.mobileList = document.querySelector(
+            "#mobile-navigation .mobile-nav__list"
+        );
+
+        elements.mobileItems = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__item"
+            )
+        );
+
+        elements.mobileLinks = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__link"
+            )
+        );
+
+
+        /* MOBILE DROPDOWNS */
+
+        elements.mobileDropdowns = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__item--dropdown"
+            )
+        );
+
+        elements.mobileDropdownToggles = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__dropdown-toggle"
+            )
+        );
+
+        elements.mobileSubmenus = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__submenu"
+            )
+        );
+
+        elements.mobileSubmenuLinks = Array.from(
+            document.querySelectorAll(
+                "#mobile-navigation .mobile-nav__submenu a"
+            )
+        );
     }
 
 
-    setupMenuToggle();
+    /* ========================================================
+       HEADER
+       ======================================================== */
 
-    setupDesktopDropdowns();
+    function setupHeader() {
 
-    setupMobileSubmenus();
+        if (!elements.header) {
+            return;
+        }
 
-    setupOutsideClick();
-
-    setupKeyboardNavigation();
-
-    setupActiveLinks();
-
-    setupNavigationResize();
-
-    setupNavigationScroll();
-
-    setupNavigationOverlay();
-
-    setupPageNavigation();
-
-}
-
-
-/* ============================================================
-   04. MOBILE MENU TOGGLE
-   ============================================================ */
-
-function setupMenuToggle() {
-
-    const toggle =
-        document.querySelector(
-            JOTA_NAV.selectors.menuToggle
+        elements.header.setAttribute(
+            "data-navigation-ready",
+            "true"
         );
-
-
-    const mobileNav =
-        document.querySelector(
-            JOTA_NAV.selectors.mobileNav
-        );
-
-
-    if (!toggle || !mobileNav) {
-
-        return;
-
     }
 
 
-    /*
-     * Garante acessibilidade.
-     */
+    /* ========================================================
+       MENU TOGGLE
+       ======================================================== */
 
-    if (
-        !toggle.hasAttribute(
-            "aria-expanded"
-        )
-    ) {
+    function setupMenuToggle() {
 
-        toggle.setAttribute(
-            "aria-expanded",
+        if (!elements.menuToggle) {
+            console.warn(
+                "[Jota Efi Navigation] .menu-toggle não foi encontrado."
+            );
+
+            return;
+        }
+
+        elements.menuToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                if (state.mobileMenuOpen) {
+                    closeMobileNavigation();
+                } else {
+                    openMobileNavigation();
+                }
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       ABRIR MENU MOBILE
+       ======================================================== */
+
+    function openMobileNavigation() {
+
+        if (!elements.mobileNavigation) {
+
+            console.error(
+                "[Jota Efi Navigation] #mobile-navigation não foi encontrado."
+            );
+
+            return;
+        }
+
+
+        state.mobileMenuOpen = true;
+
+
+        /* Classe no body */
+
+        document.body.classList.add(
+            CONFIG.bodyMenuClass
+        );
+
+
+        /* Classe no menu */
+
+        elements.mobileNavigation.classList.add(
+            CONFIG.mobileOpenClass
+        );
+
+
+        /* Acessibilidade */
+
+        elements.mobileNavigation.setAttribute(
+            "aria-hidden",
             "false"
         );
 
-    }
 
-
-    if (
-        !toggle.hasAttribute(
-            "aria-controls"
-        )
-    ) {
-
-        if (!mobileNav.id) {
-
-            mobileNav.id =
-                "jota-mobile-navigation";
-
-        }
-
-
-        toggle.setAttribute(
-            "aria-controls",
-            mobileNav.id
-        );
-
-    }
-
-
-    toggle.addEventListener(
-        "click",
-        event => {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-
-            const isOpen =
-                mobileNav.classList.contains(
-                    JOTA_NAV.classes.active
-                );
-
-
-            if (isOpen) {
-
-                closeMobileNavigation();
-
-            } else {
-
-                openMobileNavigation();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* ============================================================
-   05. OPEN MOBILE NAVIGATION
-   ============================================================ */
-
-function openMobileNavigation() {
-
-    const toggle =
-        document.querySelector(
-            JOTA_NAV.selectors.menuToggle
-        );
-
-
-    const mobileNav =
-        document.querySelector(
-            JOTA_NAV.selectors.mobileNav
-        );
-
-
-    if (!mobileNav) {
-
-        return;
-
-    }
-
-
-    mobileNav.classList.add(
-        JOTA_NAV.classes.active
-    );
-
-
-    if (toggle) {
-
-        toggle.classList.add(
-            JOTA_NAV.classes.active
-        );
-
-
-        toggle.setAttribute(
+        elements.menuToggle.setAttribute(
             "aria-expanded",
             "true"
         );
 
+
+        elements.menuToggle.setAttribute(
+            "aria-label",
+            "Fechar menu"
+        );
+
+
+        /* Troca ícone */
+
+        updateMenuIcon(true);
+
+
+        /* Impede scroll */
+
+        lockBodyScroll();
+
+
+        /* Evento customizado */
+
+        document.dispatchEvent(
+            new CustomEvent(
+                "jota:navigation-open"
+            )
+        );
     }
 
 
-    document.body.classList.add(
-        "no-scroll"
-    );
+    /* ========================================================
+       FECHAR MENU MOBILE
+       ======================================================== */
+
+    function closeMobileNavigation() {
+
+        if (!elements.mobileNavigation) {
+            return;
+        }
 
 
-    showNavigationOverlay();
+        state.mobileMenuOpen = false;
 
 
-    document.dispatchEvent(
-        new CustomEvent(
-            "jota:navigation-open"
-        )
-    );
-
-}
-
-
-/* ============================================================
-   06. CLOSE MOBILE NAVIGATION
-   ============================================================ */
-
-function closeMobileNavigation() {
-
-    const toggle =
-        document.querySelector(
-            JOTA_NAV.selectors.menuToggle
+        document.body.classList.remove(
+            CONFIG.bodyMenuClass
         );
 
 
-    const mobileNav =
-        document.querySelector(
-            JOTA_NAV.selectors.mobileNav
+        elements.mobileNavigation.classList.remove(
+            CONFIG.mobileOpenClass
         );
 
 
-    if (!mobileNav) {
-
-        return;
-
-    }
-
-
-    mobileNav.classList.remove(
-        JOTA_NAV.classes.active
-    );
-
-
-    if (toggle) {
-
-        toggle.classList.remove(
-            JOTA_NAV.classes.active
+        elements.mobileNavigation.setAttribute(
+            "aria-hidden",
+            "true"
         );
 
 
-        toggle.setAttribute(
+        elements.menuToggle.setAttribute(
             "aria-expanded",
             "false"
         );
 
+
+        elements.menuToggle.setAttribute(
+            "aria-label",
+            "Abrir menu"
+        );
+
+
+        updateMenuIcon(false);
+
+
+        unlockBodyScroll();
+
+
+        /*
+         * Fecha todos os dropdowns mobile
+         */
+
+        closeAllMobileDropdowns();
+
+
+        document.dispatchEvent(
+            new CustomEvent(
+                "jota:navigation-close"
+            )
+        );
     }
 
 
-    /*
-     * Fecha também submenus abertos.
-     */
+    /* ========================================================
+       ÍCONE DO HAMBURGUER
+       ======================================================== */
 
-    mobileNav
-        .querySelectorAll(
-            ".mobile-nav__item.is-open"
-        )
-        .forEach(item => {
+    function updateMenuIcon(isOpen) {
 
-            item.classList.remove(
-                JOTA_NAV.classes.open
+        if (!elements.menuToggle) {
+            return;
+        }
+
+        const icon =
+            elements.menuToggle.querySelector("i");
+
+        if (!icon) {
+            return;
+        }
+
+
+        if (isOpen) {
+
+            icon.classList.remove(
+                "bi-list"
             );
 
+            icon.classList.add(
+                "bi-x-lg"
+            );
 
-            const trigger =
-                item.querySelector(
-                    ".mobile-nav__link"
+        } else {
+
+            icon.classList.remove(
+                "bi-x-lg"
+            );
+
+            icon.classList.add(
+                "bi-list"
+            );
+        }
+    }
+
+
+    /* ========================================================
+       MOBILE NAVIGATION
+       ======================================================== */
+
+    function setupMobileNavigation() {
+
+        if (!elements.mobileNavigation) {
+            return;
+        }
+
+
+        /*
+         * Todos os links normais do menu mobile
+         */
+
+        elements.mobileLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        /*
+                         * Se for link normal,
+                         * fecha o menu.
+                         */
+
+                        if (
+                            !link.classList.contains(
+                                "mobile-nav__dropdown-toggle"
+                            )
+                        ) {
+                            closeMobileNavigation();
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /*
+         * Links dentro dos submenus
+         */
+
+        elements.mobileSubmenuLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        closeMobileNavigation();
+
+                    }
+                );
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       DESKTOP NAVIGATION
+       ======================================================== */
+
+    function setupDesktopNavigation() {
+
+        if (!elements.desktopNavigation) {
+            return;
+        }
+
+
+        elements.desktopLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        /*
+                         * Se não for dropdown,
+                         * fecha qualquer dropdown aberto.
+                         */
+
+                        if (
+                            !link.classList.contains(
+                                "dropdown__trigger"
+                            )
+                        ) {
+                            closeAllDesktopDropdowns();
+                        }
+
+                    }
+                );
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       DESKTOP DROPDOWNS
+       ======================================================== */
+
+    function setupDesktopDropdowns() {
+
+        if (
+            !elements.desktopDropdowns.length
+        ) {
+            return;
+        }
+
+
+        elements.desktopDropdowns.forEach(
+            function (dropdown, index) {
+
+                const trigger =
+                    dropdown.querySelector(
+                        ".dropdown__trigger"
+                    );
+
+                const menu =
+                    dropdown.querySelector(
+                        ".dropdown__menu"
+                    );
+
+
+                if (!trigger) {
+                    return;
+                }
+
+
+                /*
+                 * Clique no dropdown
+                 */
+
+                trigger.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+
+                        if (
+                            dropdown.classList.contains(
+                                CONFIG.dropdownOpenClass
+                            )
+                        ) {
+
+                            closeDesktopDropdown(
+                                dropdown
+                            );
+
+                        } else {
+
+                            closeAllDesktopDropdowns();
+
+                            openDesktopDropdown(
+                                dropdown
+                            );
+                        }
+
+                    }
                 );
 
 
-            if (trigger) {
+                /*
+                 * Teclado
+                 */
+
+                trigger.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
+
+                            event.preventDefault();
+
+                            trigger.click();
+
+                        }
+
+
+                        if (
+                            event.key === "Escape"
+                        ) {
+
+                            closeDesktopDropdown(
+                                dropdown
+                            );
+
+                            trigger.focus();
+
+                        }
+
+                    }
+                );
+
+
+                /*
+                 * Hover desktop
+                 */
+
+                dropdown.addEventListener(
+                    "mouseenter",
+                    function () {
+
+                        if (
+                            window.innerWidth >
+                            CONFIG.mobileBreakpoint
+                        ) {
+
+                            closeAllDesktopDropdowns();
+
+                            openDesktopDropdown(
+                                dropdown
+                            );
+                        }
+
+                    }
+                );
+
+
+                dropdown.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        if (
+                            window.innerWidth >
+                            CONFIG.mobileBreakpoint
+                        ) {
+
+                            closeDesktopDropdown(
+                                dropdown
+                            );
+                        }
+
+                    }
+                );
+
+
+                /*
+                 * Acessibilidade
+                 */
 
                 trigger.setAttribute(
                     "aria-expanded",
                     "false"
                 );
 
+
+                if (menu) {
+
+                    const menuId =
+                        menu.id ||
+                        "desktop-dropdown-" + index;
+
+                    menu.id = menuId;
+
+                    trigger.setAttribute(
+                        "aria-controls",
+                        menuId
+                    );
+
+                }
+
             }
-
-
-            const submenu =
-                item.querySelector(
-                    ".mobile-nav__submenu"
-                );
-
-
-            if (submenu) {
-
-                submenu.style.maxHeight =
-                    null;
-
-            }
-
-        });
-
-
-    document.body.classList.remove(
-        "no-scroll"
-    );
-
-
-    hideNavigationOverlay();
-
-
-    document.dispatchEvent(
-        new CustomEvent(
-            "jota:navigation-close"
-        )
-    );
-
-}
-
-
-/* ============================================================
-   07. DESKTOP DROPDOWNS
-   ============================================================ */
-
-function setupDesktopDropdowns() {
-
-    const dropdowns =
-        document.querySelectorAll(
-            JOTA_NAV.selectors.dropdown
         );
-
-
-    if (!dropdowns.length) {
-
-        return;
-
     }
 
 
-    dropdowns.forEach(dropdown => {
+    /* ========================================================
+       ABRIR DROPDOWN DESKTOP
+       ======================================================== */
 
-        const trigger =
-            dropdown.querySelector(
-                JOTA_NAV.selectors.dropdownTrigger
-            );
+    function openDesktopDropdown(dropdown) {
 
-
-        const menu =
-            dropdown.querySelector(
-                JOTA_NAV.selectors.dropdownMenu
-            );
-
-
-        if (!trigger || !menu) {
-
+        if (!dropdown) {
             return;
-
         }
 
-
-        /*
-         * Acessibilidade.
-         */
-
-        trigger.setAttribute(
-            "aria-haspopup",
-            "true"
-        );
-
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-
-        /*
-         * Desktop click.
-         */
-
-        trigger.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    window.innerWidth <=
-                    JOTA_NAV.config.mobileBreakpoint
-                ) {
-
-                    return;
-
-                }
-
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-                const isOpen =
-                    dropdown.classList.contains(
-                        JOTA_NAV.classes.open
-                    );
-
-
-                closeAllDesktopDropdowns(
-                    dropdown
-                );
-
-
-                if (!isOpen) {
-
-                    openDesktopDropdown(
-                        dropdown
-                    );
-
-                }
-
-            }
-        );
-
-
-        /*
-         * Keyboard navigation.
-         */
-
-        trigger.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "Enter" ||
-                    event.key === " "
-                ) {
-
-                    if (
-                        window.innerWidth <=
-                        JOTA_NAV.config.mobileBreakpoint
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    event.preventDefault();
-
-
-                    const isOpen =
-                        dropdown.classList.contains(
-                            JOTA_NAV.classes.open
-                        );
-
-
-                    if (isOpen) {
-
-                        closeDesktopDropdown(
-                            dropdown
-                        );
-
-                    } else {
-
-                        closeAllDesktopDropdowns(
-                            dropdown
-                        );
-
-                        openDesktopDropdown(
-                            dropdown
-                        );
-
-                    }
-
-                }
-
-
-                if (
-                    event.key === "ArrowDown"
-                ) {
-
-                    if (
-                        window.innerWidth <=
-                        JOTA_NAV.config.mobileBreakpoint
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    event.preventDefault();
-
-
-                    openDesktopDropdown(
-                        dropdown
-                    );
-
-
-                    focusFirstDropdownLink(
-                        menu
-                    );
-
-                }
-
-            }
-        );
-
-
-        /*
-         * Mouse enter.
-         */
-
-        dropdown.addEventListener(
-            "mouseenter",
-            () => {
-
-                if (
-                    window.innerWidth <=
-                    JOTA_NAV.config.mobileBreakpoint
-                ) {
-
-                    return;
-
-                }
-
-
-                openDesktopDropdown(
-                    dropdown
-                );
-
-            }
-        );
-
-
-        /*
-         * Mouse leave.
-         */
-
-        dropdown.addEventListener(
-            "mouseleave",
-            () => {
-
-                if (
-                    window.innerWidth <=
-                    JOTA_NAV.config.mobileBreakpoint
-                ) {
-
-                    return;
-
-                }
-
-
-                closeDesktopDropdown(
-                    dropdown
-                );
-
-            }
-        );
-
-
-        /*
-         * Links dentro do dropdown.
-         */
-
-        const links =
-            menu.querySelectorAll("a");
-
-
-        links.forEach((link, index) => {
-
-            link.addEventListener(
-                "keydown",
-                event => {
-
-                    if (
-                        event.key === "ArrowDown"
-                    ) {
-
-                        event.preventDefault();
-
-                        const next =
-                            links[index + 1];
-
-
-                        if (next) {
-
-                            next.focus();
-
-                        } else {
-
-                            links[0].focus();
-
-                        }
-
-                    }
-
-
-                    if (
-                        event.key === "ArrowUp"
-                    ) {
-
-                        event.preventDefault();
-
-                        const previous =
-                            links[index - 1];
-
-
-                        if (previous) {
-
-                            previous.focus();
-
-                        } else {
-
-                            links[
-                                links.length - 1
-                            ].focus();
-
-                        }
-
-                    }
-
-
-                    if (
-                        event.key === "Escape"
-                    ) {
-
-                        event.preventDefault();
-
-                        closeDesktopDropdown(
-                            dropdown
-                        );
-
-
-                        trigger.focus();
-
-                    }
-
-                }
-            );
-
-        });
-
-    });
-
-}
-
-
-/* ============================================================
-   08. OPEN DESKTOP DROPDOWN
-   ============================================================ */
-
-function openDesktopDropdown(
-    dropdown
-) {
-
-    if (!dropdown) {
-
-        return;
-
-    }
-
-
-    dropdown.classList.add(
-        JOTA_NAV.classes.open
-    );
-
-
-    const trigger =
-        dropdown.querySelector(
-            JOTA_NAV.selectors.dropdownTrigger
-        );
-
-
-    if (trigger) {
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-}
-
-
-/* ============================================================
-   09. CLOSE DESKTOP DROPDOWN
-   ============================================================ */
-
-function closeDesktopDropdown(
-    dropdown
-) {
-
-    if (!dropdown) {
-
-        return;
-
-    }
-
-
-    dropdown.classList.remove(
-        JOTA_NAV.classes.open
-    );
-
-
-    const trigger =
-        dropdown.querySelector(
-            JOTA_NAV.selectors.dropdownTrigger
-        );
-
-
-    if (trigger) {
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-}
-
-
-/* ============================================================
-   10. CLOSE ALL DROPDOWNS
-   ============================================================ */
-
-function closeAllDesktopDropdowns(
-    except = null
-) {
-
-    const dropdowns =
-        document.querySelectorAll(
-            JOTA_NAV.selectors.dropdown
-        );
-
-
-    dropdowns.forEach(dropdown => {
-
-        if (
-            except &&
-            dropdown === except
-        ) {
-
-            return;
-
-        }
-
-
-        closeDesktopDropdown(
-            dropdown
-        );
-
-    });
-
-}
-
-
-/* ============================================================
-   11. FOCUS FIRST DROPDOWN LINK
-   ============================================================ */
-
-function focusFirstDropdownLink(
-    menu
-) {
-
-    if (!menu) {
-
-        return;
-
-    }
-
-
-    const firstLink =
-        menu.querySelector("a");
-
-
-    if (firstLink) {
-
-        firstLink.focus();
-
-    }
-
-}
-
-
-/* ============================================================
-   12. MOBILE SUBMENUS
-   ============================================================ */
-
-function setupMobileSubmenus() {
-
-    const mobileItems =
-        document.querySelectorAll(
-            JOTA_NAV.selectors.mobileNavItem
-        );
-
-
-    if (!mobileItems.length) {
-
-        return;
-
-    }
-
-
-    mobileItems.forEach(item => {
-
-        const submenu =
-            item.querySelector(
-                JOTA_NAV.selectors.mobileSubmenu
-            );
-
-
-        if (!submenu) {
-
-            return;
-
-        }
-
-
-        const trigger =
-            item.querySelector(
-                JOTA_NAV.selectors.mobileNavLink
-            );
-
-
-        if (!trigger) {
-
-            return;
-
-        }
-
-
-        trigger.setAttribute(
-            "aria-haspopup",
-            "true"
-        );
-
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-
-        trigger.addEventListener(
-            "click",
-            event => {
-
-                /*
-                 * Só controla submenu no mobile.
-                 */
-
-                if (
-                    window.innerWidth >
-                    JOTA_NAV.config.mobileBreakpoint
-                ) {
-
-                    return;
-
-                }
-
-
-                /*
-                 * Se o link tiver um href real
-                 * e não for apenas um trigger,
-                 * ainda permitimos o primeiro clique
-                 * para abrir o submenu.
-                 */
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-                const isOpen =
-                    item.classList.contains(
-                        JOTA_NAV.classes.open
-                    );
-
-
-                closeAllMobileSubmenus(
-                    item
-                );
-
-
-                if (isOpen) {
-
-                    closeMobileSubmenu(
-                        item
-                    );
-
-                } else {
-
-                    openMobileSubmenu(
-                        item
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-}
-
-
-/* ============================================================
-   13. OPEN MOBILE SUBMENU
-   ============================================================ */
-
-function openMobileSubmenu(
-    item
-) {
-
-    if (!item) {
-
-        return;
-
-    }
-
-
-    const submenu =
-        item.querySelector(
-            JOTA_NAV.selectors.mobileSubmenu
-        );
-
-
-    const trigger =
-        item.querySelector(
-            JOTA_NAV.selectors.mobileNavLink
-        );
-
-
-    item.classList.add(
-        JOTA_NAV.classes.open
-    );
-
-
-    if (trigger) {
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-
-    if (submenu) {
-
-        submenu.style.maxHeight =
-            submenu.scrollHeight + "px";
-
-    }
-
-}
-
-
-/* ============================================================
-   14. CLOSE MOBILE SUBMENU
-   ============================================================ */
-
-function closeMobileSubmenu(
-    item
-) {
-
-    if (!item) {
-
-        return;
-
-    }
-
-
-    const submenu =
-        item.querySelector(
-            JOTA_NAV.selectors.mobileSubmenu
-        );
-
-
-    const trigger =
-        item.querySelector(
-            JOTA_NAV.selectors.mobileNavLink
-        );
-
-
-    item.classList.remove(
-        JOTA_NAV.classes.open
-    );
-
-
-    if (trigger) {
-
-        trigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-
-    if (submenu) {
-
-        submenu.style.maxHeight =
-            null;
-
-    }
-
-}
-
-
-/* ============================================================
-   15. CLOSE ALL MOBILE SUBMENUS
-   ============================================================ */
-
-function closeAllMobileSubmenus(
-    except = null
-) {
-
-    const items =
-        document.querySelectorAll(
-            ".mobile-nav__item.is-open"
-        );
-
-
-    items.forEach(item => {
-
-        if (
-            except &&
-            item === except
-        ) {
-
-            return;
-
-        }
-
-
-        closeMobileSubmenu(
-            item
-        );
-
-    });
-
-}
-
-
-/* ============================================================
-   16. OUTSIDE CLICK
-   ============================================================ */
-
-function setupOutsideClick() {
-
-    document.addEventListener(
-        "click",
-        event => {
-
-            const target =
-                event.target;
-
-
-            /*
-             * Fecha dropdown desktop
-             * quando clicar fora.
-             */
-
-            const clickedDropdown =
-                target.closest(
-                    JOTA_NAV.selectors.dropdown
-                );
-
-
-            if (!clickedDropdown) {
-
-                closeAllDesktopDropdowns();
-
-            }
-
-
-            /*
-             * Fecha menu mobile quando
-             * clicar fora.
-             */
-
-            const mobileNav =
-                document.querySelector(
-                    JOTA_NAV.selectors.mobileNav
-                );
-
-
-            const toggle =
-                document.querySelector(
-                    JOTA_NAV.selectors.menuToggle
-                );
-
-
-            if (
-                mobileNav &&
-                mobileNav.classList.contains(
-                    JOTA_NAV.classes.active
-                )
-            ) {
-
-                const clickedInsideNav =
-                    mobileNav.contains(
-                        target
-                    );
-
-
-                const clickedToggle =
-                    toggle &&
-                    toggle.contains(
-                        target
-                    );
-
-
-                if (
-                    !clickedInsideNav &&
-                    !clickedToggle
-                ) {
-
-                    closeMobileNavigation();
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-/* ============================================================
-   17. KEYBOARD NAVIGATION
-   ============================================================ */
-
-function setupKeyboardNavigation() {
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            /*
-             * ESC
-             */
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                closeAllDesktopDropdowns();
-
-                closeMobileNavigation();
-
-            }
-
-
-            /*
-             * TAB
-             *
-             * Não interfere no fluxo normal
-             * do teclado.
-             */
-
-        }
-    );
-
-}
-
-
-/* ============================================================
-   18. ACTIVE PAGE LINK
-   ============================================================ */
-
-function setupActiveLinks() {
-
-    const links =
-        document.querySelectorAll(
-            "a[href]"
-        );
-
-
-    if (!links.length) {
-
-        return;
-
-    }
-
-
-    const currentPath =
-        normalizePath(
-            window.location.pathname
-        );
-
-
-    links.forEach(link => {
-
-        const href =
-            link.getAttribute("href");
-
-
-        if (!href) {
-
-            return;
-
-        }
-
-
-        /*
-         * Ignora:
-         * #anchors
-         * javascript:
-         * mailto:
-         * tel:
-         */
-
-        if (
-            href.startsWith("#") ||
-            href.startsWith("javascript:") ||
-            href.startsWith("mailto:") ||
-            href.startsWith("tel:")
-        ) {
-
-            return;
-
-        }
-
-
-        /*
-         * Links externos não recebem
-         * estado ativo.
-         */
-
-        if (
-            href.startsWith("http://") ||
-            href.startsWith("https://")
-        ) {
-
-            try {
-
-                const url =
-                    new URL(href);
-
-
-                if (
-                    url.hostname !==
-                    window.location.hostname
-                ) {
-
-                    return;
-
-                }
-
-            } catch (error) {
-
-                return;
-
-            }
-
-        }
-
-
-        let linkPath = "";
-
-
-        try {
-
-            const url =
-                new URL(
-                    href,
-                    window.location.href
-                );
-
-
-            linkPath =
-                normalizePath(
-                    url.pathname
-                );
-
-        } catch (error) {
-
-            return;
-
-        }
-
-
-        if (
-            linkPath === currentPath
-        ) {
-
-            markActiveLink(
-                link
-            );
-
-        }
-
-    });
-
-}
-
-
-/* ============================================================
-   19. MARK ACTIVE LINK
-   ============================================================ */
-
-function markActiveLink(
-    link
-) {
-
-    if (!link) {
-
-        return;
-
-    }
-
-
-    link.classList.add(
-        JOTA_NAV.classes.current
-    );
-
-
-    link.setAttribute(
-        "aria-current",
-        "page"
-    );
-
-
-    /*
-     * Marca também o item pai.
-     */
-
-    const navItem =
-        link.closest(
-            ".nav__item, .mobile-nav__item"
-        );
-
-
-    if (navItem) {
-
-        navItem.classList.add(
-            JOTA_NAV.classes.current
-        );
-
-    }
-
-
-    /*
-     * Se estiver dentro de dropdown,
-     * marca também o dropdown principal.
-     */
-
-    const dropdown =
-        link.closest(
-            ".dropdown"
-        );
-
-
-    if (dropdown) {
 
         dropdown.classList.add(
-            JOTA_NAV.classes.current
+            CONFIG.dropdownOpenClass
         );
 
 
@@ -1454,134 +756,347 @@ function markActiveLink(
 
         if (trigger) {
 
-            trigger.classList.add(
-                JOTA_NAV.classes.current
+            trigger.setAttribute(
+                "aria-expanded",
+                "true"
             );
 
         }
 
-    }
 
-}
-
-
-/* ============================================================
-   20. NORMALIZE PATH
-   ============================================================ */
-
-function normalizePath(
-    path
-) {
-
-    if (!path) {
-
-        return "/";
-
+        state.desktopDropdownOpen =
+            dropdown;
     }
 
 
-    /*
-     * Remove query/hash.
-     */
+    /* ========================================================
+       FECHAR DROPDOWN DESKTOP
+       ======================================================== */
 
-    path =
-        path.split("?")[0]
-            .split("#")[0];
+    function closeDesktopDropdown(dropdown) {
+
+        if (!dropdown) {
+            return;
+        }
 
 
-    /*
-     * Remove barras duplicadas.
-     */
-
-    path =
-        path.replace(
-            /\/+/g,
-            "/"
+        dropdown.classList.remove(
+            CONFIG.dropdownOpenClass
         );
 
 
-    /*
-     * Remove index.html.
-     */
-
-    path =
-        path.replace(
-            /\/index\.html$/i,
-            "/"
-        );
-
-
-    /*
-     * Remove barra final,
-     * exceto root.
-     */
-
-    if (
-        path.length > 1 &&
-        path.endsWith("/")
-    ) {
-
-        path =
-            path.slice(
-                0,
-                -1
+        const trigger =
+            dropdown.querySelector(
+                ".dropdown__trigger"
             );
 
+
+        if (trigger) {
+
+            trigger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+
+        if (
+            state.desktopDropdownOpen ===
+            dropdown
+        ) {
+
+            state.desktopDropdownOpen =
+                null;
+        }
     }
 
 
-    return path || "/";
+    /* ========================================================
+       FECHAR TODOS OS DROPDOWNS DESKTOP
+       ======================================================== */
 
-}
+    function closeAllDesktopDropdowns() {
 
+        elements.desktopDropdowns.forEach(
+            function (dropdown) {
 
-/* ============================================================
-   21. NAVIGATION RESIZE
-   ============================================================ */
+                closeDesktopDropdown(
+                    dropdown
+                );
 
-function setupNavigationResize() {
+            }
+        );
 
-    let previousWidth =
-        window.innerWidth;
-
-
-    window.addEventListener(
-        "resize",
-        debounce(
-            () => {
-
-                const currentWidth =
-                    window.innerWidth;
+        state.desktopDropdownOpen = null;
+    }
 
 
-                /*
-                 * Mudança entre desktop
-                 * e mobile.
-                 */
+    /* ========================================================
+       MOBILE DROPDOWNS
+       ======================================================== */
 
-                const crossedBreakpoint =
-                    (
-                        previousWidth <=
-                        JOTA_NAV.config.mobileBreakpoint
-                        &&
-                        currentWidth >
-                        JOTA_NAV.config.mobileBreakpoint
-                    )
-                    ||
-                    (
-                        previousWidth >
-                        JOTA_NAV.config.mobileBreakpoint
-                        &&
-                        currentWidth <=
-                        JOTA_NAV.config.mobileBreakpoint
+    function setupMobileDropdowns() {
+
+        elements.mobileDropdownToggles.forEach(
+            function (toggle) {
+
+                toggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                toggle.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+
+                        const item =
+                            toggle.closest(
+                                ".mobile-nav__item--dropdown"
+                            );
+
+
+                        if (!item) {
+                            return;
+                        }
+
+
+                        const submenu =
+                            item.querySelector(
+                                ".mobile-nav__submenu"
+                            );
+
+
+                        if (!submenu) {
+                            return;
+                        }
+
+
+                        const isOpen =
+                            item.classList.contains(
+                                CONFIG.dropdownOpenClass
+                            );
+
+
+                        /*
+                         * Fecha os outros
+                         */
+
+                        closeAllMobileDropdowns(
+                            item
+                        );
+
+
+                        if (isOpen) {
+
+                            closeMobileDropdown(
+                                item
+                            );
+
+                        } else {
+
+                            openMobileDropdown(
+                                item,
+                                submenu,
+                                toggle
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                toggle.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
+
+                            event.preventDefault();
+
+                            toggle.click();
+
+                        }
+
+
+                        if (
+                            event.key === "Escape"
+                        ) {
+
+                            const item =
+                                toggle.closest(
+                                    ".mobile-nav__item--dropdown"
+                                );
+
+                            if (item) {
+
+                                closeMobileDropdown(
+                                    item
+                                );
+
+                                toggle.focus();
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       ABRIR DROPDOWN MOBILE
+       ======================================================== */
+
+    function openMobileDropdown(
+        item,
+        submenu,
+        toggle
+    ) {
+
+        item.classList.add(
+            CONFIG.dropdownOpenClass
+        );
+
+
+        toggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+
+        submenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        state.mobileDropdownOpen =
+            item;
+    }
+
+
+    /* ========================================================
+       FECHAR DROPDOWN MOBILE
+       ======================================================== */
+
+    function closeMobileDropdown(item) {
+
+        if (!item) {
+            return;
+        }
+
+
+        item.classList.remove(
+            CONFIG.dropdownOpenClass
+        );
+
+
+        const toggle =
+            item.querySelector(
+                ".mobile-nav__dropdown-toggle"
+            );
+
+
+        const submenu =
+            item.querySelector(
+                ".mobile-nav__submenu"
+            );
+
+
+        if (toggle) {
+
+            toggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+
+        if (submenu) {
+
+            submenu.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+
+        if (
+            state.mobileDropdownOpen ===
+            item
+        ) {
+
+            state.mobileDropdownOpen =
+                null;
+        }
+    }
+
+
+    /* ========================================================
+       FECHAR TODOS OS DROPDOWNS MOBILE
+       ======================================================== */
+
+    function closeAllMobileDropdowns(
+        except = null
+    ) {
+
+        elements.mobileDropdowns.forEach(
+            function (item) {
+
+                if (item !== except) {
+
+                    closeMobileDropdown(
+                        item
                     );
 
+                }
+
+            }
+        );
+
+
+        if (!except) {
+            state.mobileDropdownOpen = null;
+        }
+    }
+
+
+    /* ========================================================
+       CLICK FORA
+       ======================================================== */
+
+    function setupOutsideClick() {
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                /*
+                 * Desktop dropdown
+                 */
 
                 if (
-                    crossedBreakpoint
+                    state.desktopDropdownOpen &&
+                    !state.desktopDropdownOpen.contains(
+                        event.target
+                    )
                 ) {
-
-                    closeMobileNavigation();
 
                     closeAllDesktopDropdowns();
 
@@ -1589,465 +1104,650 @@ function setupNavigationResize() {
 
 
                 /*
-                 * Limpa estado de submenu.
+                 * Menu mobile
                  */
 
                 if (
-                    currentWidth >
-                    JOTA_NAV.config.mobileBreakpoint
+                    state.mobileMenuOpen &&
+                    elements.mobileNavigation &&
+                    !elements.mobileNavigation.contains(
+                        event.target
+                    ) &&
+                    elements.menuToggle &&
+                    !elements.menuToggle.contains(
+                        event.target
+                    )
                 ) {
 
-                    document
-                        .querySelectorAll(
-                            ".mobile-nav__item.is-open"
-                        )
-                        .forEach(item => {
-
-                            closeMobileSubmenu(
-                                item
-                            );
-
-                        });
+                    closeMobileNavigation();
 
                 }
 
-
-                previousWidth =
-                    currentWidth;
-
-            },
-            150
-        )
-    );
-
-}
-
-
-/* ============================================================
-   22. NAVIGATION SCROLL
-   ============================================================ */
-
-function setupNavigationScroll() {
-
-    const header =
-        document.querySelector(
-            JOTA_NAV.selectors.header
+            }
         );
-
-
-    if (!header) {
-
-        return;
-
     }
 
 
-    let ticking =
-        false;
+    /* ========================================================
+       ESCAPE
+       ======================================================== */
+
+    function setupEscapeKey() {
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key !== "Escape"
+                ) {
+                    return;
+                }
 
 
-    const update =
-        () => {
+                /*
+                 * Fecha menu mobile
+                 */
 
-            if (
-                window.scrollY >
-                30
-            ) {
+                if (state.mobileMenuOpen) {
 
-                header.classList.add(
-                    JOTA_NAV.classes.scrolled
-                );
+                    closeMobileNavigation();
 
-            } else {
+                    if (elements.menuToggle) {
+                        elements.menuToggle.focus();
+                    }
 
-                header.classList.remove(
-                    JOTA_NAV.classes.scrolled
-                );
+                    return;
+                }
+
+
+                /*
+                 * Fecha dropdown desktop
+                 */
+
+                if (
+                    state.desktopDropdownOpen
+                ) {
+
+                    const dropdown =
+                        state.desktopDropdownOpen;
+
+                    closeDesktopDropdown(
+                        dropdown
+                    );
+
+
+                    const trigger =
+                        dropdown.querySelector(
+                            ".dropdown__trigger"
+                        );
+
+                    if (trigger) {
+                        trigger.focus();
+                    }
+
+                }
 
             }
+        );
+    }
 
 
-            ticking =
-                false;
+    /* ========================================================
+       HEADER AO FAZER SCROLL
+       ======================================================== */
 
-        };
+    function setupScrollHeader() {
 
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!ticking) {
-
-                requestAnimationFrame(
-                    update
-                );
-
-                ticking =
-                    true;
-
-            }
-
-        },
-        {
-            passive: true
+        if (!elements.header) {
+            return;
         }
-    );
 
 
-    update();
-
-}
+        updateHeaderScroll();
 
 
-/* ============================================================
-   23. NAVIGATION OVERLAY
-   ============================================================ */
-
-function setupNavigationOverlay() {
-
-    /*
-     * O overlay é criado apenas se
-     * o menu mobile precisar dele.
-     */
-
-    const mobileNav =
-        document.querySelector(
-            JOTA_NAV.selectors.mobileNav
+        window.addEventListener(
+            "scroll",
+            updateHeaderScroll,
+            {
+                passive: true
+            }
         );
+    }
 
 
-    if (!mobileNav) {
+    function updateHeaderScroll() {
 
-        return;
+        if (!elements.header) {
+            return;
+        }
+
+
+        if (
+            window.scrollY >
+            CONFIG.scrollOffset
+        ) {
+
+            elements.header.classList.add(
+                CONFIG.headerScrolledClass
+            );
+
+        } else {
+
+            elements.header.classList.remove(
+                CONFIG.headerScrolledClass
+            );
+
+        }
 
     }
 
 
-    let overlay =
-        document.querySelector(
-            JOTA_NAV.selectors.overlay
-        );
+    /* ========================================================
+       PÁGINA ATIVA
+       ======================================================== */
 
+    function setupActivePage() {
 
-    if (!overlay) {
-
-        overlay =
-            document.createElement(
-                "div"
+        const currentPath =
+            normalizePath(
+                window.location.pathname
             );
 
 
-        overlay.className =
-            "navigation-overlay";
+        /*
+         * Links desktop
+         */
 
-
-        overlay.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        document.body.appendChild(
-            overlay
-        );
-
-    }
-
-
-    overlay.addEventListener(
-        "click",
-        () => {
-
-            closeMobileNavigation();
-
-        }
-    );
-
-
-    /*
-     * Estilos mínimos inline apenas
-     * para garantir funcionamento.
-     *
-     * O visual definitivo pode ficar
-     * no CSS.
-     */
-
-    if (
-        !overlay.dataset.initialized
-    ) {
-
-        overlay.dataset.initialized =
-            "true";
-
-    }
-
-}
-
-
-/* ============================================================
-   24. SHOW OVERLAY
-   ============================================================ */
-
-function showNavigationOverlay() {
-
-    const overlay =
-        document.querySelector(
-            ".navigation-overlay"
-        );
-
-
-    if (!overlay) {
-
-        return;
-
-    }
-
-
-    overlay.classList.add(
-        JOTA_NAV.classes.active
-    );
-
-}
-
-
-/* ============================================================
-   25. HIDE OVERLAY
-   ============================================================ */
-
-function hideNavigationOverlay() {
-
-    const overlay =
-        document.querySelector(
-            ".navigation-overlay"
-        );
-
-
-    if (!overlay) {
-
-        return;
-
-    }
-
-
-    overlay.classList.remove(
-        JOTA_NAV.classes.active
-    );
-
-}
-
-
-/* ============================================================
-   26. PAGE NAVIGATION
-   ============================================================ */
-
-function setupPageNavigation() {
-
-    const links =
-        document.querySelectorAll(
-            "a[href]"
-        );
-
-
-    links.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
+        elements.desktopLinks.forEach(
+            function (link) {
 
                 const href =
-                    link.getAttribute(
-                        "href"
-                    );
+                    link.getAttribute("href");
 
 
                 if (!href) {
-
                     return;
-
                 }
 
 
                 /*
-                 * Não interfere em links especiais.
+                 * Ignora links #
                  */
 
                 if (
-                    href.startsWith("#") ||
-                    href.startsWith("mailto:") ||
-                    href.startsWith("tel:") ||
-                    href.startsWith("javascript:")
+                    href === "#" ||
+                    href.startsWith(
+                        "javascript:"
+                    )
                 ) {
-
                     return;
-
                 }
 
 
-                /*
-                 * Links com target="_blank".
-                 */
+                const linkPath =
+                    normalizePath(
+                        getPathFromHref(
+                            href
+                        )
+                    );
+
 
                 if (
-                    link.target === "_blank"
+                    linkPath === currentPath
                 ) {
 
-                    return;
+                    link.classList.add(
+                        CONFIG.activeClass
+                    );
 
-                }
 
-
-                /*
-                 * Se o link for da mesma página,
-                 * apenas fecha o menu mobile.
-                 */
-
-                try {
-
-                    const url =
-                        new URL(
-                            href,
-                            window.location.href
+                    const parentDropdown =
+                        link.closest(
+                            ".dropdown"
                         );
 
 
-                    if (
-                        url.origin ===
-                        window.location.origin
-                    ) {
+                    if (parentDropdown) {
 
-                        if (
-                            window.innerWidth <=
-                            JOTA_NAV.config.mobileBreakpoint
-                        ) {
+                        const trigger =
+                            parentDropdown.querySelector(
+                                ".dropdown__trigger"
+                            );
 
-                            closeMobileNavigation();
+                        if (trigger) {
+
+                            trigger.classList.add(
+                                CONFIG.activeClass
+                            );
 
                         }
-
                     }
-
-                } catch (error) {
-
-                    return;
 
                 }
 
             }
         );
 
-    });
 
-}
+        /*
+         * Links mobile
+         */
 
+        elements.mobileLinks.forEach(
+            function (link) {
 
-/* ============================================================
-   27. DEBOUNCE
-   ============================================================ */
-
-function debounce(
-    callback,
-    delay = 150
-) {
-
-    let timeout;
+                const href =
+                    link.getAttribute("href");
 
 
-    return function (...args) {
-
-        clearTimeout(
-            timeout
-        );
+                if (!href) {
+                    return;
+                }
 
 
-        timeout =
-            setTimeout(
-                () => {
+                if (
+                    href === "#" ||
+                    href.startsWith(
+                        "javascript:"
+                    )
+                ) {
+                    return;
+                }
 
-                    callback.apply(
-                        this,
-                        args
+
+                const linkPath =
+                    normalizePath(
+                        getPathFromHref(
+                            href
+                        )
                     );
 
-                },
-                delay
+
+                if (
+                    linkPath === currentPath
+                ) {
+
+                    link.classList.add(
+                        CONFIG.activeClass
+                    );
+
+                }
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       NORMALIZAR PATH
+       ======================================================== */
+
+    function normalizePath(path) {
+
+        if (!path) {
+            return "/";
+        }
+
+
+        /*
+         * Remove query string
+         */
+
+        path =
+            path.split("?")[0];
+
+
+        /*
+         * Remove hash
+         */
+
+        path =
+            path.split("#")[0];
+
+
+        /*
+         * Normaliza barras
+         */
+
+        path =
+            path.replace(
+                /\/+/g,
+                "/"
             );
 
-    };
 
-}
+        /*
+         * Remove barra final,
+         * exceto raiz
+         */
+
+        if (
+            path.length > 1 &&
+            path.endsWith("/")
+        ) {
+
+            path =
+                path.slice(
+                    0,
+                    -1
+                );
+        }
 
 
-/* ============================================================
-   28. GLOBAL NAVIGATION API
-   ============================================================ */
+        /*
+         * Trata index.html
+         */
 
-window.JotaNavigation = {
+        if (
+            path.endsWith(
+                "/index.html"
+            )
+        ) {
 
-    open:
-        openMobileNavigation,
+            path =
+                path.replace(
+                    "/index.html",
+                    ""
+                );
 
-    close:
-        closeMobileNavigation,
+            if (!path) {
+                path = "/";
+            }
+        }
 
-    toggle:
-        () => {
 
-            const mobileNav =
-                document.querySelector(
-                    JOTA_NAV.selectors.mobileNav
+        return path;
+    }
+
+
+    /* ========================================================
+       OBTER PATH DE UM HREF
+       ======================================================== */
+
+    function getPathFromHref(href) {
+
+        try {
+
+            const url =
+                new URL(
+                    href,
+                    window.location.href
+                );
+
+            return url.pathname;
+
+        } catch (error) {
+
+            return href;
+        }
+    }
+
+
+    /* ========================================================
+       RESPONSIVIDADE / RESIZE
+       ======================================================== */
+
+    function setupResize() {
+
+        let resizeTimer;
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                clearTimeout(
+                    resizeTimer
                 );
 
 
-            if (!mobileNav) {
+                resizeTimer =
+                    setTimeout(
+                        function () {
 
-                return;
+                            updateNavigationMode();
 
-            }
-
-
-            if (
-                mobileNav.classList.contains(
-                    JOTA_NAV.classes.active
-                )
-            ) {
-
-                closeMobileNavigation();
-
-            } else {
-
-                openMobileNavigation();
+                        },
+                        150
+                    );
 
             }
-
-        },
-
-
-    closeDropdowns:
-        closeAllDesktopDropdowns,
-
-    closeSubmenus:
-        closeAllMobileSubmenus
-
-};
-
-
-/* ============================================================
-   29. NAVIGATION EVENTS
-   ============================================================ */
-
-window.addEventListener(
-    "beforeunload",
-    () => {
-
-        document.body.classList.remove(
-            "no-scroll"
         );
-
     }
-);
 
 
-/* ============================================================
-   END OF NAVIGATION.JS
-   ============================================================ */
+    /* ========================================================
+       ATUALIZAR MODO DE NAVEGAÇÃO
+       ======================================================== */
+
+    function updateNavigationMode() {
+
+        const isMobile =
+            window.innerWidth <=
+            CONFIG.mobileBreakpoint;
+
+
+        const newMode =
+            isMobile
+                ? "mobile"
+                : "desktop";
+
+
+        if (
+            state.currentMode ===
+            newMode
+        ) {
+            return;
+        }
+
+
+        state.currentMode =
+            newMode;
+
+
+        /*
+         * Entrou no desktop
+         */
+
+        if (
+            newMode === "desktop"
+        ) {
+
+            closeMobileNavigation();
+
+            closeAllMobileDropdowns();
+
+            document.body.classList.remove(
+                CONFIG.bodyMenuClass
+            );
+
+        }
+
+
+        /*
+         * Entrou no mobile
+         */
+
+        if (
+            newMode === "mobile"
+        ) {
+
+            closeAllDesktopDropdowns();
+
+        }
+    }
+
+
+    /* ========================================================
+       ACESSIBILIDADE
+       ======================================================== */
+
+    function setupAccessibility() {
+
+        /*
+         * Menu mobile
+         */
+
+        if (
+            elements.mobileNavigation
+        ) {
+
+            elements.mobileNavigation.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+
+        /*
+         * Botão mobile
+         */
+
+        if (
+            elements.menuToggle
+        ) {
+
+            elements.menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            elements.menuToggle.setAttribute(
+                "aria-controls",
+                "mobile-navigation"
+            );
+
+            elements.menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+
+            elements.menuToggle.setAttribute(
+                "type",
+                "button"
+            );
+
+        }
+
+
+        /*
+         * Submenus mobile
+         */
+
+        elements.mobileSubmenus.forEach(
+            function (submenu) {
+
+                submenu.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+        );
+    }
+
+
+    /* ========================================================
+       BODY SCROLL LOCK
+       ======================================================== */
+
+    function lockBodyScroll() {
+
+        document.body.style.overflow =
+            "hidden";
+    }
+
+
+    function unlockBodyScroll() {
+
+        /*
+         * Só devolve o scroll se
+         * nenhum menu estiver aberto.
+         */
+
+        if (
+            !state.mobileMenuOpen
+        ) {
+
+            document.body.style.overflow =
+                "";
+        }
+    }
+
+
+    /* ========================================================
+       API PÚBLICA
+       ======================================================== */
+
+    function exposeNavigationAPI() {
+
+        window.JotaNavigation = {
+
+            openMenu:
+                openMobileNavigation,
+
+            closeMenu:
+                closeMobileNavigation,
+
+            toggleMenu:
+                function () {
+
+                    if (
+                        state.mobileMenuOpen
+                    ) {
+
+                        closeMobileNavigation();
+
+                    } else {
+
+                        openMobileNavigation();
+
+                    }
+
+                },
+
+            closeDesktopDropdowns:
+                closeAllDesktopDropdowns,
+
+            closeMobileDropdowns:
+                closeAllMobileDropdowns,
+
+            refresh:
+                function () {
+
+                    cacheElements();
+
+                    setupActivePage();
+
+                    updateNavigationMode();
+
+                    updateHeaderScroll();
+
+                },
+
+            getState:
+                function () {
+
+                    return {
+                        mobileMenuOpen:
+                            state.mobileMenuOpen,
+
+                        desktopDropdownOpen:
+                            !!state.desktopDropdownOpen,
+
+                        mobileDropdownOpen:
+                            !!state.mobileDropdownOpen,
+
+                        mode:
+                            state.currentMode
+                    };
+
+                }
+
+        };
+    }
+
+})();
