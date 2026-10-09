@@ -1,17 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-AO">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description"
         content="Explore a biblioteca de beats da Jota Efi Beatz. Beats de Trap, Rap, Drill, Afro Beat, Guetto Zuk, Afro House, Afro Tech, Afro Drill, Funk e muito mais.">
-
     <meta name="author" content="Jota Efi Beatz">
-
     <title>Beats — Jota Efi Beatz</title>
 
     <!-- ==============================
@@ -25,23 +20,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- ==============================
          BOOTSTRAP ICONS
     =============================== -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- ==============================
          CSS
     =============================== -->
 
     <!-- Base -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/beats.css">
 
     <!-- Components -->
     <link rel="stylesheet" href="../css/components.css">
@@ -49,85 +40,126 @@
     <!-- Responsive -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
 
+
 </head>
 
 
 <body>
+    <!-- =========================================================
+         ANNOUNCEMENT BAR
+    ========================================================== -->
+
+    <div class="announcement-bar">
+
+        <div class="announcement-bar__content">
+
+            <span class="announcement-bar__label">
+                NOVO DROP
+            </span>
+
+            <span class="announcement-bar__text">
+                DROP INDEPENDENTE — Vol. Trap Disponível
+            </span>
+
+            <a href="./pages/drops.html" class="announcement-bar__link">
+                EXPLORAR
+                <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+        </div>
+
+
+        <button class="announcement-bar__close" aria-label="Fechar anúncio" type="button">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+    </div>
+
 
     <!-- =========================================================
-         SITE HEADER
+         HEADER / NAVIGATION
     ========================================================== -->
 
     <header class="site-header">
 
-        <div class="site-header__inner">
+        <div class="container site-header__inner">
 
-            <!-- BRAND -->
-
-            <a href="../index.html" class="brand" aria-label="Jota Efi Beatz - Página inicial">
-
-                <img
-                    src="../assets/images/logo.png"
-                    alt="Jota Efi Beatz"
+            <!-- ==================================================
+             LOGO
+        =================================================== -->
+            <a href="../index.html" class="brand" aria-label="Jota Efi Beatz — Página inicial">
+                <img src="../assets/images/LOGO MEU/logo/logo-jotaefibeatz-semfundo.png" alt="Jota Efi Beatz"
                     class="brand__logo">
-
             </a>
 
 
-            <!-- DESKTOP NAVIGATION -->
+            <!-- ==================================================
+             DESKTOP NAVIGATION
+        =================================================== -->
 
             <nav class="main-navigation" aria-label="Navegação principal">
 
-                <a href="../index.html" class="nav-link">
-                    Início
-                </a>
-
-                <a href="./beats.html" class="nav-link active" aria-current="page">
+                <a href="./pages/beats.html" class="nav-link">
                     Beats
                 </a>
 
-                <a href="./drums.html" class="nav-link">
-                    Drums & Samples
+                <a href="./pages/sound-library.html" class="nav-link">
+                    Sound Library
                 </a>
 
-                <a href="./music.html" class="nav-link">
+                <a href="./pages/drops.html" class="nav-link">
+                    Drops
+                </a>
+
+                <a href="./pages/music.html" class="nav-link">
                     Música
                 </a>
 
-                <a href="./projects.html" class="nav-link">
+                <a href="./pages/projects.html" class="nav-link">
                     Projetos
                 </a>
 
-                <a href="./about.html" class="nav-link">
+                <a href="./pages/about.html" class="nav-link">
                     Sobre
                 </a>
 
             </nav>
 
 
-            <!-- HEADER ACTIONS -->
-
+            <!-- ==================================================
+             HEADER ACTIONS
+        =================================================== -->
             <div class="header-actions">
 
-                <a href="#beat-library" class="header-action">
-                    <i class="bi bi-headphones"></i>
-                    <span>Ouvir Beats</span>
+                <!-- CTA -->
+                <a href="./pages/beats.html" class="header-cta">
+                    <span>Explorar Beats</span>
+                    <i class="bi bi-arrow-up-right"></i>
                 </a>
 
-                <!-- MOBILE MENU BUTTON -->
 
-                <button
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Abrir menu"
-                    aria-controls="mobile-navigation"
-                    aria-expanded="false"
-                    data-menu-toggle>
+                <!-- SEARCH -->
+                <button class="icon-button" type="button" aria-label="Pesquisar" data-search-trigger>
+                    <i class="bi bi-search"></i>
+                </button>
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
 
+                <!-- CART -->
+                <a href="#" class="icon-button" aria-label="Carrinho">
+                    <i class="bi bi-bag"></i>
+
+                    <span class="cart-count">
+                        0
+                    </span>
+                </a>
+
+
+                <!-- ==================================================
+                 MOBILE MENU TOGGLE
+            =================================================== -->
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="mobile-navigation" data-menu-toggle>
+                    <i class="bi bi-list" aria-hidden="true"></i>
                 </button>
 
             </div>
@@ -135,58 +167,54 @@
         </div>
 
 
-        <!-- =====================================================
-             MOBILE NAVIGATION
-        ====================================================== -->
+        <!-- ======================================================
+         MOBILE NAVIGATION
+    ======================================================= -->
 
-        <div
-            class="mobile-navigation"
-            id="mobile-navigation"
-            data-mobile-menu
-            aria-hidden="true">
+        <div id="mobile-navigation" class="mobile-navigation" data-mobile-menu aria-hidden="true">
 
             <nav class="mobile-navigation__nav" aria-label="Navegação mobile">
 
-                <a href="../index.html" class="mobile-nav-link">
-                    <i class="bi bi-house"></i>
-                    <span>Início</span>
-                </a>
-
-                <a href="./beats.html"
-                    class="mobile-nav-link active"
-                    aria-current="page">
-
-                    <i class="bi bi-music-note-beamed"></i>
+                <a href="./pages/beats.html" class="mobile-nav-link">
                     <span>Beats</span>
-
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
 
-                <a href="./drums.html" class="mobile-nav-link">
 
-                    <i class="bi bi-disc"></i>
-                    <span>Drums & Samples</span>
-
+                <a href="./pages/sound-library.html" class="mobile-nav-link">
+                    <span>Sound Library</span>
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
 
-                <a href="./music.html" class="mobile-nav-link">
 
-                    <i class="bi bi-play-circle"></i>
+                <a href="./pages/drops.html" class="mobile-nav-link">
+                    <span>Drops</span>
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+
+
+                <a href="./pages/music.html" class="mobile-nav-link">
                     <span>Música</span>
-
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
 
-                <a href="./projects.html" class="mobile-nav-link">
 
-                    <i class="bi bi-grid"></i>
+                <a href="./pages/projects.html" class="mobile-nav-link">
                     <span>Projetos</span>
-
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
 
-                <a href="./about.html" class="mobile-nav-link">
 
-                    <i class="bi bi-person"></i>
+                <a href="./pages/about.html" class="mobile-nav-link">
                     <span>Sobre</span>
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
 
+
+                <!-- CTA MOBILE -->
+                <a href="./pages/beats.html" class="mobile-nav-link mobile-nav-link--cta">
+                    <span>Explorar Beats</span>
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
 
             </nav>
@@ -211,7 +239,7 @@
         <section class="beats-hero">
 
             <div class="container">
-
+                
                 <div class="beats-hero__content">
 
                     <span class="section-eyebrow">
@@ -258,9 +286,7 @@
              BEAT LIBRARY
         ====================================================== -->
 
-        <section
-            class="beat-library"
-            id="beat-library">
+        <section class="beat-library" id="beat-library">
 
             <div class="container">
 
@@ -302,100 +328,70 @@
 
                 <div class="beat-filters" aria-label="Filtros de beats">
 
-                    <button
-                        class="beat-filter active"
-                        type="button"
-                        data-filter="all">
+                    <button class="beat-filter active" type="button" data-filter="all">
 
                         Todos
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="trap">
+                    <button class="beat-filter" type="button" data-filter="trap">
 
                         Trap
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="rap">
+                    <button class="beat-filter" type="button" data-filter="rap">
 
                         Rap
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="drill">
+                    <button class="beat-filter" type="button" data-filter="drill">
 
                         Drill
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="afrobeat">
+                    <button class="beat-filter" type="button" data-filter="afrobeat">
 
                         Afro Beat
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="guettozuk">
+                    <button class="beat-filter" type="button" data-filter="guettozuk">
 
                         Guetto Zuk
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="afrohouse">
+                    <button class="beat-filter" type="button" data-filter="afrohouse">
 
                         Afro House
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="afrotech">
+                    <button class="beat-filter" type="button" data-filter="afrotech">
 
                         Afro Tech
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="afrodrill">
+                    <button class="beat-filter" type="button" data-filter="afrodrill">
 
                         Afro Drill
 
                     </button>
 
 
-                    <button
-                        class="beat-filter"
-                        type="button"
-                        data-filter="funk">
+                    <button class="beat-filter" type="button" data-filter="funk">
 
                         Funk
 
@@ -409,32 +405,20 @@
                      BEATS GRID
                 ================================================== -->
 
-                <div
-                    class="beats-grid"
-                    id="beats-grid">
+                <div class="beats-grid" id="beats-grid">
 
 
                     <!-- =================================================
                          BEAT CARD 01
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-001"
-                        data-category="trap">
+                    <article class="beat-card" data-beat-id="beat-001" data-category="trap">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-01.jpg"
-                                alt="Capa do beat Trap"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-01.jpg" alt="Capa do beat Trap" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-01.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -469,9 +453,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-001"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-001" class="beat-card__buy">
 
                                     Comprar
 
@@ -489,23 +471,13 @@
                          BEAT CARD 02
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-002"
-                        data-category="drill">
+                    <article class="beat-card" data-beat-id="beat-002" data-category="drill">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-02.jpg"
-                                alt="Capa do beat Drill"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-02.jpg" alt="Capa do beat Drill" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-02.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -540,9 +512,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-002"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-002" class="beat-card__buy">
 
                                     Comprar
 
@@ -560,23 +530,13 @@
                          BEAT CARD 03
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-003"
-                        data-category="afrobeat">
+                    <article class="beat-card" data-beat-id="beat-003" data-category="afrobeat">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-03.jpg"
-                                alt="Capa do beat Afro Beat"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-03.jpg" alt="Capa do beat Afro Beat" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-03.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -611,9 +571,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-003"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-003" class="beat-card__buy">
 
                                     Comprar
 
@@ -631,23 +589,13 @@
                          BEAT CARD 04
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-004"
-                        data-category="afrotech">
+                    <article class="beat-card" data-beat-id="beat-004" data-category="afrotech">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-04.jpg"
-                                alt="Capa do beat Afro Tech"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-04.jpg" alt="Capa do beat Afro Tech" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-04.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -682,9 +630,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-004"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-004" class="beat-card__buy">
 
                                     Comprar
 
@@ -702,23 +648,13 @@
                          BEAT CARD 05
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-005"
-                        data-category="guettozuk">
+                    <article class="beat-card" data-beat-id="beat-005" data-category="guettozuk">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-05.jpg"
-                                alt="Capa do beat Guetto Zuk"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-05.jpg" alt="Capa do beat Guetto Zuk" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-05.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -753,9 +689,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-005"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-005" class="beat-card__buy">
 
                                     Comprar
 
@@ -773,23 +707,13 @@
                          BEAT CARD 06
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-006"
-                        data-category="rap">
+                    <article class="beat-card" data-beat-id="beat-006" data-category="rap">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-06.jpg"
-                                alt="Capa do beat Rap"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-06.jpg" alt="Capa do beat Rap" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-06.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -824,9 +748,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-006"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-006" class="beat-card__buy">
 
                                     Comprar
 
@@ -844,23 +766,13 @@
                          BEAT CARD 07
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-007"
-                        data-category="afrodrill">
+                    <article class="beat-card" data-beat-id="beat-007" data-category="afrodrill">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-07.jpg"
-                                alt="Capa do beat Afro Drill"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-07.jpg" alt="Capa do beat Afro Drill" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-07.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -895,9 +807,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-007"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-007" class="beat-card__buy">
 
                                     Comprar
 
@@ -915,23 +825,13 @@
                          BEAT CARD 08
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-008"
-                        data-category="afrohouse">
+                    <article class="beat-card" data-beat-id="beat-008" data-category="afrohouse">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-08.jpg"
-                                alt="Capa do beat Afro House"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-08.jpg" alt="Capa do beat Afro House" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-08.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -966,9 +866,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-008"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-008" class="beat-card__buy">
 
                                     Comprar
 
@@ -986,23 +884,13 @@
                          BEAT CARD 09
                     ================================================== -->
 
-                    <article
-                        class="beat-card"
-                        data-beat-id="beat-009"
-                        data-category="funk">
+                    <article class="beat-card" data-beat-id="beat-009" data-category="funk">
 
                         <div class="beat-card__cover">
 
-                            <img
-                                src="../assets/images/beats/beat-09.jpg"
-                                alt="Capa do beat Funk"
-                                loading="lazy">
+                            <img src="../assets/images/beats/beat-09.jpg" alt="Capa do beat Funk" loading="lazy">
 
-                            <button
-                                class="beat-card__play"
-                                type="button"
-                                aria-label="Reproduzir beat"
-                                data-play-beat
+                            <button class="beat-card__play" type="button" aria-label="Reproduzir beat" data-play-beat
                                 data-audio="../assets/audio/beats/beat-09.mp3">
 
                                 <i class="bi bi-play-fill"></i>
@@ -1037,9 +925,7 @@
                                     15.000 Kz
                                 </span>
 
-                                <a
-                                    href="./beat.html?id=beat-009"
-                                    class="beat-card__buy">
+                                <a href="./beat.html?id=beat-009" class="beat-card__buy">
 
                                     Comprar
 
@@ -1059,10 +945,7 @@
                      EMPTY STATE
                 ================================================== -->
 
-                <div
-                    class="beats-empty"
-                    id="beats-empty"
-                    hidden>
+                <div class="beats-empty" id="beats-empty" hidden>
 
                     <i class="bi bi-music-note-list"></i>
 
@@ -1108,9 +991,7 @@
                             e transforma a próxima ideia em música.
                         </p>
 
-                        <a
-                            href="#beat-library"
-                            class="button button--primary">
+                        <a href="#beat-library" class="button button--primary">
 
                             Explorar Beats
 
@@ -1163,9 +1044,7 @@
                         para desenvolver uma produção personalizada.
                     </p>
 
-                    <a
-                        href="./contact.html"
-                        class="button button--outline">
+                    <a href="./contact.html" class="button button--outline">
 
                         Falar sobre um Beat
 
@@ -1187,10 +1066,7 @@
          GLOBAL PLAYER
     ========================================================== -->
 
-    <aside
-        class="audio-player"
-        id="audio-player"
-        aria-label="Player de beats">
+    <aside class="audio-player" id="audio-player" aria-label="Player de beats">
 
         <div class="audio-player__inner">
 
@@ -1201,10 +1077,7 @@
 
                 <div class="audio-player__cover">
 
-                    <img
-                        src="../assets/images/beats/default.jpg"
-                        alt="Capa do beat atual"
-                        id="player-cover">
+                    <img src="../assets/images/beats/default.jpg" alt="Capa do beat atual" id="player-cover">
 
                 </div>
 
@@ -1232,11 +1105,7 @@
 
             <div class="audio-player__controls">
 
-                <button
-                    type="button"
-                    class="audio-player__button"
-                    id="player-play"
-                    aria-label="Reproduzir">
+                <button type="button" class="audio-player__button" id="player-play" aria-label="Reproduzir">
 
                     <i class="bi bi-play-fill"></i>
 
@@ -1253,13 +1122,7 @@
                     0:00
                 </span>
 
-                <input
-                    type="range"
-                    id="player-progress"
-                    min="0"
-                    max="100"
-                    value="0"
-                    step="0.1"
+                <input type="range" id="player-progress" min="0" max="100" value="0" step="0.1"
                     aria-label="Progresso do áudio">
 
                 <span id="player-duration">
@@ -1275,14 +1138,7 @@
 
                 <i class="bi bi-volume-up"></i>
 
-                <input
-                    type="range"
-                    id="player-volume"
-                    min="0"
-                    max="1"
-                    value="1"
-                    step="0.01"
-                    aria-label="Volume">
+                <input type="range" id="player-volume" min="0" max="1" value="1" step="0.01" aria-label="Volume">
 
             </div>
 
@@ -1308,13 +1164,9 @@
 
                 <div class="site-footer__brand">
 
-                    <a
-                        href="../index.html"
-                        class="footer-logo">
+                    <a href="../index.html" class="footer-logo">
 
-                        <img
-                            src="../assets/images/logo.png"
-                            alt="Jota Efi Beatz">
+                        <img src="../assets/images/logo.png" alt="Jota Efi Beatz">
 
                     </a>
 
@@ -1421,9 +1273,7 @@
          AUDIO ELEMENT
     ========================================================== -->
 
-    <audio
-        id="global-audio"
-        preload="metadata">
+    <audio id="global-audio" preload="metadata">
     </audio>
 
 
